@@ -1,9 +1,9 @@
-TP1
+TP2
 ===
 
-Trabajo Práctico N°1 - Algoritmos II  
+Trabajo Práctico N°2 - Algoritmos II  
   
 ## 2048 Game Source
 
-[Main](https://github.com/Grateds/TP2/tree/master/src/main/java/com/Grateds/game) | [Tests](https://github.com/Grateds/TP1/tree/master/src/test/java/com/Grateds/game)
+[Main](https://github.com/Grateds/TP2/tree/master/src/main/java/com/Grateds/game) | [Tests](https://github.com/Grateds/TP2/tree/master/src/test/java/com/Grateds/game)
 
