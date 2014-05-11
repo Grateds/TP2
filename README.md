@@ -7,3 +7,6 @@ Trabajo Práctico N°1 - Algoritmos II
 
 [Main](https://github.com/Grateds/TP2/tree/master/src/main/java/com/Grateds/game) | [Tests](https://github.com/Grateds/TP1/tree/master/src/test/java/com/Grateds/game)
 
+##### To run:
+
+	~$ ./run.sh
