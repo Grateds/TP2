@@ -1,4 +1,4 @@
-package com.Grateds.game.MODEL;
+package com.Grateds.game.AI;
 
 /**
  * Interface which defines the basic requirements on states, needed 
@@ -6,8 +6,10 @@ package com.Grateds.game.MODEL;
  * definitions for particular adversary search problems should 
  * implement this interface, so that general adversary search 
  * strategies can be used.
- * @author Nazareno Aguirre
- * @version 0.1, 17/05/2010
+ * Copyright:    Copyright (c) Grateds 2014
+ * Company:      Grateds
+ * @author Grateds
+ * @version 0.1
  */
 public interface AdversarySearchState {
 

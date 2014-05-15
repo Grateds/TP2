@@ -1,18 +1,14 @@
 package com.Grateds.game.AI;
-
-import com.Grateds.game.MODEL.AdversarySearchProblem;
-import com.Grateds.game.MODEL.AdversarySearchState;
-
 /**
- * Abstract class which defines the basic elements necessary for 
- * implementing a search engine for adversary search problems. Particular adversary
- * search engines should implement this interface, to be able to use them with adversary
- * search problems.
- * @param S is the state of the search problem to which the adversary search engine is applied.
- * @param P is the search problem, to which the engine is going to be applied. 
- * @author Nazareno Aguirre
- * @version 0.2, 09/05/2014
- */
+* Title:        AdversarySearchEngine<p>
+* Description:  .<p>
+* Copyright:    Copyright (c) Grateds 2014
+* Company:      Grateds
+* @author Grateds
+* @version 0.1
+*/
+
+@SuppressWarnings("hiding")
 public abstract class AdversarySearchEngine<P extends AdversarySearchProblem<State>, State extends AdversarySearchState> {
 
     
@@ -38,7 +34,6 @@ public abstract class AdversarySearchEngine<P extends AdversarySearchProblem<Sta
 	 * is set to 1.
 	 */	
     public AdversarySearchEngine(P p) {
-    	if (p==null) throw new IllegalArgumentException("problem is null");
         problem = p;
         maxDepth = 1;
     }
@@ -53,7 +48,6 @@ public abstract class AdversarySearchEngine<P extends AdversarySearchProblem<Sta
 	 * this.maxDepth is set to maxDepth.
 	 */	
     public AdversarySearchEngine(P p, int maxDepth) {
-    	if (p==null || maxDepth<1) throw new IllegalArgumentException("Problem is null, or invalid max depth");
         problem = p;
         this.maxDepth = maxDepth;
     }
@@ -79,7 +73,6 @@ public abstract class AdversarySearchEngine<P extends AdversarySearchProblem<Sta
 	 * @post. this.maxDepth is set to maxDepth.
 	 */	 
 	public void setMaxDepth(int maxDepth) {
-		if (maxDepth<1) throw new IllegalArgumentException("invalid max depth");
 		this.maxDepth = maxDepth;
 	}
 
@@ -101,7 +94,6 @@ public abstract class AdversarySearchEngine<P extends AdversarySearchProblem<Sta
 	 * @post. 'problem' is set to p.
 	 */	
     public void setProblem(P p) {
-    	if (p==null) throw new IllegalArgumentException("problem is null");
         problem = p;
     }
     

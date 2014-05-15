@@ -1,16 +1,18 @@
-package com.Grateds.game.MODEL;
+package com.Grateds.game.AI;
 
 import java.util.*; // necessary due to the use of lists.
 
 /**
  * Interface which defines the basic elements necessary for 
- * characterising a problem as an adversary search. Instances of these 
+ * characterising a problem as a search. Instances of these 
  * problems should implement this interface, to be able to use 
  * the adversary search strategies.
  * @param S is the class characterising the state for the search
  * problem.        
- * @author Nazareno Aguirre
- * @version 0.1, 17/05/2010
+ * Copyright:    Copyright (c) Grateds 2014
+ * Company:      Grateds
+ * @author Grateds
+ * @version 0.1
  */
 public interface AdversarySearchProblem<S extends AdversarySearchState> {
 
