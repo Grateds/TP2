@@ -70,7 +70,7 @@ public class Board {
 	 * 
 	 */
 	public void movingUp(){ 
-		int [] c0 = {this.board[0][0], this.board[1][0], this.board[2][0], this.board[3][0]}; //Columna cero		
+		int [] c0 = {this.board[0][0], this.board[1][0], this.board[2][0], this.board[3][0]}; 	
 		int [] c1 = {this.board[0][1], this.board[1][1], this.board[2][1], this.board[3][1]}; 	
 		int [] c2 = {this.board[0][2], this.board[1][2], this.board[2][2], this.board[3][2]};		
 		int [] c3 = {this.board[0][3], this.board[1][3], this.board[2][3], this.board[3][3]};	   
@@ -78,14 +78,22 @@ public class Board {
 	    subValidMotion(c1);
 	    subValidMotion(c2);
 	    subValidMotion(c3);  
-	    pasaArregloAMatriz(c0,c1,c2,c3);
+	    pasaArregloAMatrizUp(c0,c1,c2,c3);
 	}
 	
 	/**
 	 * 
 	 */
 	public void movingBelow(){ 
-		//TODO Implement this method
+		int [] c0 = {this.board[3][0], this.board[2][0], this.board[1][0], this.board[0][0]}; 	
+		int [] c1 = {this.board[3][1], this.board[2][1], this.board[1][1], this.board[0][1]}; 	
+		int [] c2 = {this.board[3][2], this.board[2][2], this.board[1][2], this.board[0][2]};		
+		int [] c3 = {this.board[3][3], this.board[2][3], this.board[1][3], this.board[0][3]};	 
+		subValidMotion(c0);
+		subValidMotion(c1);
+		subValidMotion(c2);
+		subValidMotion(c3);  
+		pasaArregloAMatrizBelow(c0,c1,c2,c3);
 	}
 	
 	/**
@@ -132,7 +140,7 @@ public class Board {
 	 * @param c2
 	 * @param c3
 	 */
-	public void pasaArregloAMatriz(int [] c0, int [] c1, int [] c2, int [] c3){
+	public void pasaArregloAMatrizUp(int [] c0, int [] c1, int [] c2, int [] c3){
 		for (int k = 0; k < 4; k++) {
 			this.board[k][0] = c0[k];
 		}
@@ -144,6 +152,44 @@ public class Board {
 		}
 		for (int k = 0; k < 4; k++) {
 			this.board[k][3] = c3[k];
+		}
+	}
+	
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 */
+	public void pasaArregloAMatrizBelow(int [] c0, int [] c1, int [] c2, int [] c3){
+		int m = 0;
+		int k1 = 3;
+		while (m < 4) {
+			this.board[k1][0] = c0[m];
+			k1--;
+			m++;
+		}
+		int n = 0;
+		int k2 = 3;
+		while (n < 4) {
+			this.board[k2][1] = c1[n];
+			k2--;
+			n++;
+		}
+		int o = 0;
+		int k3 = 3;
+		while (o < 4) {
+			this.board[k3][2] = c2[o];
+			k3--;
+			o++;
+		}
+		int p = 0;
+		int k4 = 3;
+		while ( p < 4) {
+			this.board[k4][3] = c3[p];
+			k4--;
+			p++;
 		}
 	}
 }
