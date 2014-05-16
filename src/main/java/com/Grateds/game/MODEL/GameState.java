@@ -93,6 +93,6 @@ public class GameState implements State {
 	  * 
 	  */
 	 public void vML(){
-		this.board.movingRight();	 
+		this.board.movingLeft();	 
 	 }
 }
