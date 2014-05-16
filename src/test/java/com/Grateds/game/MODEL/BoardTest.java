@@ -47,6 +47,31 @@ public class BoardTest {
 	    res.set(2, 3, 32);
 	    assertEquals(res.toString(),b.toString());  
 	}
+	
+	@Test
+	public void testMovingBelow() {
+		Board b = new Board();
+		Board res = new Board();
+		b.set(0, 1, 2);
+		b.set(1, 1, 2);
+		b.set(1, 2, 8);
+		b.set(1, 3, 4);
+		b.set(2, 2, 16);
+		b.set(2, 3, 16);
+		b.set(3, 1, 2);
+		b.set(3, 2, 8);
+		b.set(3, 3, 8);
+		b.movingBelow();
+		res.set(1, 2, 8);
+		res.set(1, 3, 4);
+		res.set(2, 1, 2);
+		res.set(2, 2, 16);
+		res.set(2, 3, 16);
+		res.set(3, 1, 4);
+		res.set(3, 2, 8);
+		res.set(3, 3, 8);
+		assertEquals(res.toString(),b.toString()); 
+	}
 	//TODO test for equals
 	//TODO test for contains
 }
