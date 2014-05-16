@@ -100,14 +100,28 @@ public class Board {
 	 * 
 	 */
 	public void movingRight(){ 
-		//TODO Implement this method
+//		int [] c0 = {this.board[][], this.board[][], this.board[][], this.board[][]}; 	
+//		int [] c1 = {this.board[][], this.board[][], this.board[][], this.board[][]}; 	
+//		int [] c2 = {this.board[][], this.board[][], this.board[][], this.board[][]};		
+//		int [] c3 = {this.board[][], this.board[][], this.board[][], this.board[][]};	 
+//		subValidMotion(c0);
+//		subValidMotion(c1);
+//		subValidMotion(c2);
+//		subValidMotion(c3);
 	}
 	
 	/**
 	 * 
 	 */
 	public void movingLeft(){
-		//TODO Implement this method
+//		int [] c0 = {this.board[][], this.board[][], this.board[][], this.board[][]}; 	
+//		int [] c1 = {this.board[][], this.board[][], this.board[][], this.board[][]}; 	
+//		int [] c2 = {this.board[][], this.board[][], this.board[][], this.board[][]};		
+//		int [] c3 = {this.board[][], this.board[][], this.board[][], this.board[][]};	 
+//		subValidMotion(c0);
+//		subValidMotion(c1);
+//		subValidMotion(c2);
+//		subValidMotion(c3);
 	}
 	
 	/**
