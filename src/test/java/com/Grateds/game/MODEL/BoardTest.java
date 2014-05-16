@@ -72,6 +72,17 @@ public class BoardTest {
 		res.set(3, 3, 8);
 		assertEquals(res.toString(),b.toString()); 
 	}
+	
+	@Test
+	public void testMovingRight(){
+		// TODO Implement this method	
+
+	}
+	
+	@Test
+	public void testMovingLeft(){
+		// TODO Implement this method
+	}
 	//TODO test for equals
 	//TODO test for contains
 }
