@@ -100,28 +100,30 @@ public class Board {
 	 * 
 	 */
 	public void movingRight(){ 
-//		int [] c0 = {this.board[][], this.board[][], this.board[][], this.board[][]}; 	
-//		int [] c1 = {this.board[][], this.board[][], this.board[][], this.board[][]}; 	
-//		int [] c2 = {this.board[][], this.board[][], this.board[][], this.board[][]};		
-//		int [] c3 = {this.board[][], this.board[][], this.board[][], this.board[][]};	 
-//		subValidMotion(c0);
-//		subValidMotion(c1);
-//		subValidMotion(c2);
-//		subValidMotion(c3);
+		int [] c0 = {this.board[0][3], this.board[0][2], this.board[0][1], this.board[0][0]}; 	
+		int [] c1 = {this.board[1][3], this.board[1][2], this.board[1][1], this.board[1][0]}; 	
+		int [] c2 = {this.board[2][3], this.board[2][2], this.board[2][1], this.board[2][0]};		
+		int [] c3 = {this.board[3][3], this.board[3][2], this.board[3][1], this.board[3][0]};	 
+		subValidMotion(c0);
+		subValidMotion(c1);
+		subValidMotion(c2);
+		subValidMotion(c3);
+		pasaArregloAMatrizRight(c0,c1,c2,c3);
 	}
-	
+
 	/**
 	 * 
 	 */
 	public void movingLeft(){
-//		int [] c0 = {this.board[][], this.board[][], this.board[][], this.board[][]}; 	
-//		int [] c1 = {this.board[][], this.board[][], this.board[][], this.board[][]}; 	
-//		int [] c2 = {this.board[][], this.board[][], this.board[][], this.board[][]};		
-//		int [] c3 = {this.board[][], this.board[][], this.board[][], this.board[][]};	 
-//		subValidMotion(c0);
-//		subValidMotion(c1);
-//		subValidMotion(c2);
-//		subValidMotion(c3);
+		int [] c0 = {this.board[0][0], this.board[0][1], this.board[0][2], this.board[0][3]}; 	
+		int [] c1 = {this.board[1][0], this.board[1][1], this.board[1][2], this.board[1][3]}; 	
+		int [] c2 = {this.board[2][0], this.board[2][1], this.board[2][2], this.board[2][3]};		
+		int [] c3 = {this.board[3][0], this.board[3][1], this.board[3][2], this.board[3][3]};	 
+		subValidMotion(c0);
+		subValidMotion(c1);
+		subValidMotion(c2);
+		subValidMotion(c3);
+		pasaArregloAMatrizLeft(c0,c1,c2,c3);
 	}
 	
 	/**
@@ -204,6 +206,66 @@ public class Board {
 			this.board[k4][3] = c3[p];
 			k4--;
 			p++;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 */
+	public void pasaArregloAMatrizRight(int [] c0, int [] c1, int [] c2, int [] c3) {
+		int m = 0;
+		int k1 = 3;
+		while (m < 4) {
+			this.board[0][k1] = c0[m];
+			k1--;
+			m++;
+		}
+		int n = 0;
+		int k2 = 3;
+		while (n < 4) {
+			this.board[1][k2] = c1[n];
+			k2--;
+			n++;
+		}
+		int o = 0;
+		int k3 = 3;
+		while (o < 4) {
+			this.board[2][k3] = c2[o];
+			k3--;
+			o++;
+		}
+		int p = 0;
+		int k4 = 3;
+		while ( p < 4) {
+			this.board[3][k4] = c3[p];
+			k4--;
+			p++;
+		}
+	}
+	
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 */
+	public void pasaArregloAMatrizLeft(int [] c0, int [] c1, int [] c2, int [] c3) {
+		for (int i = 0; i < 4; i++) {
+			this.board[0][i] = c0[i];
+		}
+		for (int j = 0; j < 4; j++) {
+			this.board[1][j] = c1[j];
+		}
+		for (int k = 0; k < 4; k++) {
+			this.board[2][k] = c2[k];
+		}
+		for (int m = 0; m < 4; m++) {
+			this.board[3][m] = c3[m];
 		}
 	}
 }
