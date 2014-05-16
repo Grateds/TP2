@@ -53,8 +53,47 @@ public class GameState implements State {
 		 return this.board.toString();
 	 }
 	 
+	 /**
+	  * 
+	  * @return
+	  */
 	 public boolean isSucess() {
 		 return this.board.contains(2048);
 	 }
+	 
+	 /**
+	  * 
+	  * @return Board
+	  */
+	 public Board getBoard(){
+		 return this.board;
+	 }
+	 
+	 /**
+	  * 
+	  */
+	 public void vMU(){
+		this.board.movingUp();	 
+	 }
+	 
+	 /**
+	  * 
+	  */
+	 public void vMB(){
+		this.board.movingBelow();	 
+	 }
 
+	 /**
+	  * 
+	  */
+	 public void vMR(){
+		this.board.movingRight();	 
+	 }
+	 
+	 /**
+	  * 
+	  */
+	 public void vML(){
+		this.board.movingRight();	 
+	 }
 }
