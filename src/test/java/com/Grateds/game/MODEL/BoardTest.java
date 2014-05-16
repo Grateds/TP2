@@ -75,13 +75,30 @@ public class BoardTest {
 	
 	@Test
 	public void testMovingRight(){
-		// TODO Implement this method	
-
+		Board b = new Board();
+		Board res = new Board();
+	    b.set(0, 0, 8);
+        b.set(1, 2, 2);
+        b.set(2, 2, 4);
+        b.set(2, 3, 4);
+        b.movingRight();
+        res.set(0, 3, 8);
+        res.set(1, 3, 2);
+        res.set(2, 3, 8);
+        assertEquals(res.toString(),b.toString()); 
 	}
 	
 	@Test
 	public void testMovingLeft(){
-		// TODO Implement this method
+		Board b = new Board();
+		Board res = new Board();
+	    b.set(1, 1, 4);
+        b.set(1, 2, 4);
+        b.set(2, 3, 16);
+        b.movingLeft();
+        res.set(1, 0, 8);
+        res.set(2, 0, 16);
+        assertEquals(res.toString(),b.toString());
 	}
 	//TODO test for equals
 	//TODO test for contains
