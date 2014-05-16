@@ -2,7 +2,6 @@ package com.Grateds.game.MODEL;
 
 import com.Grateds.game.AI.State;
 
-
 /**
  * Title:        GameState<p>
  * Description:  class describing the states for the 2048 game Problem.
