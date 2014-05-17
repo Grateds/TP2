@@ -128,7 +128,6 @@ public class Board {
 	 * TODO Complete this doc
 	 */
 	public Board movingBelow(){ 
-
 		int [] c0 = {this.board[3][0], this.board[2][0], this.board[1][0], this.board[0][0]}; 	
 		int [] c1 = {this.board[3][1], this.board[2][1], this.board[1][1], this.board[0][1]}; 	
 		int [] c2 = {this.board[3][2], this.board[2][2], this.board[1][2], this.board[0][2]};		
@@ -140,16 +139,14 @@ public class Board {
 
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
-		sucBoard.set(pasaArregloAMatrizUp(c0,c1,c2,c3));;
+		sucBoard.set(pasaArregloAMatrizBelow(c0,c1,c2,c3));;
 		return sucBoard;
-
 	}
 	
 	/**
 	 * TODO Complete this doc
 	 */
 	public Board movingRight(){ 
-
 		int [] c0 = {this.board[0][3], this.board[0][2], this.board[0][1], this.board[0][0]}; 	
 		int [] c1 = {this.board[1][3], this.board[1][2], this.board[1][1], this.board[1][0]}; 	
 		int [] c2 = {this.board[2][3], this.board[2][2], this.board[2][1], this.board[2][0]};		
@@ -161,7 +158,7 @@ public class Board {
 
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
-		sucBoard.set(pasaArregloAMatrizUp(c0,c1,c2,c3));;
+		sucBoard.set(pasaArregloAMatrizRight(c0,c1,c2,c3));;
 		return sucBoard;
 
 	}
@@ -170,7 +167,6 @@ public class Board {
 	 * TODO Complete this doc
 	 */
 	public Board movingLeft(){
-
 		int [] c0 = {this.board[0][0], this.board[0][1], this.board[0][2], this.board[0][3]}; 	
 		int [] c1 = {this.board[1][0], this.board[1][1], this.board[1][2], this.board[1][3]}; 	
 		int [] c2 = {this.board[2][0], this.board[2][1], this.board[2][2], this.board[2][3]};		
@@ -179,12 +175,11 @@ public class Board {
 		subValidMotion(c1);
 		subValidMotion(c2);
 		subValidMotion(c3);
-
+		
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
-		sucBoard.set(pasaArregloAMatrizUp(c0,c1,c2,c3));;
+		sucBoard.set(pasaArregloAMatrizLeft(c0,c1,c2,c3));;
 		return sucBoard;
-
 	}
 	
 	/**
@@ -275,7 +270,6 @@ public class Board {
 			p++;
 		}
 		return res;
-
 	}
 	
 	/**
