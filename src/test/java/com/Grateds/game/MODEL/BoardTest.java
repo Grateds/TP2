@@ -26,6 +26,86 @@ public class BoardTest {
 	}
 	
 	@Test
+	public void testMovingUp() {
+		Board b = new Board();
+		Board expected = new Board();	
+		int[][] table1 = {
+				{0, 0, 4, 8},
+				{0, 0, 0, 16},
+				{0, 0, 4, 32},
+				{2, 0, 4, 0}}; 
+	    int[][] table2 = {
+				{2, 0, 8, 8},
+				{0, 0, 4, 16},
+				{0, 0, 0, 32},
+				{0, 0, 0, 0}};
+	    b.set(table1);
+	    expected.set(table2);
+	    Board res = b.movingUp();
+	    assertEquals(expected.toString(),res.toString());  
+	}
+
+	@Test
+	public void testMovingBelow() {
+		Board b = new Board();
+		Board expected = new Board();	
+		int[][] table1 = {
+				{2, 0, 4, 8},
+				{0, 0, 0, 16},
+				{0, 0, 4, 32},
+				{0, 0, 4, 0}}; 
+	    int[][] table2 = {
+				{0, 0, 0, 0},
+				{0, 0, 0, 8},
+				{0, 0, 4, 16},
+				{2, 0, 8, 32}};
+	    b.set(table1);
+	    expected.set(table2);
+	    Board res = b.movingBelow();
+	    assertEquals(expected.toString(),res.toString()); 
+	}
+	
+	@Test
+	public void testMovingRight(){
+		Board b = new Board();
+		Board expected = new Board();	
+		int[][] table1 = {
+				{0, 8, 8, 0},
+				{0, 0, 0, 0},
+				{2, 0, 2, 2},
+				{0, 4, 0, 0}}; 
+	    int[][] table2 = {
+				{0, 0, 0, 16},
+				{0, 0, 0, 0},
+				{0, 0, 2, 4},
+				{0, 0, 0, 4}};
+	    b.set(table1);
+	    expected.set(table2);
+	    Board res = b.movingRight();
+	    assertEquals(expected.toString(),res.toString()); 
+	}
+
+	@Test
+	public void testMovingLeft(){
+		Board b = new Board();
+		Board expected = new Board();
+		int[][] table1 = {
+				{0, 0, 0, 0},
+				{0, 4, 4, 0},
+				{0, 0, 0, 16},
+				{0, 0, 0, 32}}; 
+		int[][] table2 = {
+				{0, 0, 0, 0},
+				{8, 0, 0, 0},
+				{16, 0, 0, 0},
+				{32, 0, 0, 0}};
+        b.set(table1);
+        expected.set(table2);
+        Board res = b.movingLeft();
+        assertEquals(expected.toString(),res.toString());
+	}
+
+	@Test
 	public void testEquals() {
 		//TODO implement this test
 		assertFalse(false);
