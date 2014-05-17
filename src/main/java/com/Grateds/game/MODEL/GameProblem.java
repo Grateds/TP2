@@ -1,9 +1,9 @@
 package com.Grateds.game.MODEL;
 
+import java.util.LinkedList;
 import java.util.List;
+
 import com.Grateds.game.AI.AbstractSearchProblem;
-
-
 
 /**
  * Title:        GameProblem<p>
@@ -18,29 +18,56 @@ import com.Grateds.game.AI.AbstractSearchProblem;
 public class GameProblem implements AbstractSearchProblem<GameState>  {
 	
 	private GameState initial;  // stores the initial state for the problem
-								 // which can be set when via a constructor.
-	
+								 // which can be set when via a constructor.	
 	/**
-	 * 
+	 * TODO Complete this do
 	 * @param b
 	 */
 	public GameProblem(Board b) {
 		this.initial = new GameState(b);
 	}
 	
+	/**
+	 * TODO Complete this do
+	 */
 	@Override
 	public GameState initialState() {
 		return this.initial;
 	}
-
+    
+	/**
+	 * TODO Complete this do
+	 */
 	@Override
 	public List<GameState> getSuccessors(GameState s) {
-		// TODO Auto-generated method stub
-		return null;
+		List<GameState> successors = new LinkedList<GameState>(); // list for storing the successors of s
+		GameState gUp = (GameState) s; 
+		GameState gBelow = (GameState) s;
+		GameState gLeft = (GameState) s;
+		GameState gRight = (GameState) s;
+		
+		if (gUp.vMU()) successors.add(gUp); 
+		if (gBelow.vMB()) successors.add(gBelow);
+		if (gLeft.vML()) successors.add(gLeft);
+		if (gRight.vMR()) successors.add(gRight);
+		
+		return successors;
 	}
-
+    
+	/**
+	 * TODO Complete this doc
+	 */
 	@Override
 	public boolean success(GameState s) {
 		return s.isSucess();
+	}
+	
+	/**
+	 * TODO Complete this doc
+	 */
+	@SuppressWarnings("unused") // Suppress this warning once implemented 
+	private int val(GameState s) {
+		// TODO Implement this method
+		return 0;
 	}
 }

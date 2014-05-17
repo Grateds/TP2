@@ -25,6 +25,15 @@ public class BoardTest {
 		assertEquals(8,result);
 	}
 	
-	//TODO test for equals
-	//TODO test for contains
+	@Test
+	public void testEquals() {
+		//TODO implement this test
+		assertFalse(false);
+	}
+	
+	@Test
+	public void testContains() {
+		//TODO implement this test
+		assertFalse(false);
+	}
 }
