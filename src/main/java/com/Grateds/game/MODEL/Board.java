@@ -113,11 +113,8 @@ public class Board {
 		int [] c1 = {this.board[0][1], this.board[1][1], this.board[2][1], this.board[3][1]}; 	
 		int [] c2 = {this.board[0][2], this.board[1][2], this.board[2][2], this.board[3][2]};		
 		int [] c3 = {this.board[0][3], this.board[1][3], this.board[2][3], this.board[3][3]};	   
-	    subValidMotion(c0);
-	    subValidMotion(c1);
-	    subValidMotion(c2);
-	    subValidMotion(c3);  
-
+		
+		motion(c0,c1,c2,c3);	
 	    Board sucBoard = new Board();
 	    sucBoard.board = this.board.clone();
 	    sucBoard.set(pasaArregloAMatrizUp(c0,c1,c2,c3));;
@@ -132,11 +129,8 @@ public class Board {
 		int [] c1 = {this.board[3][1], this.board[2][1], this.board[1][1], this.board[0][1]}; 	
 		int [] c2 = {this.board[3][2], this.board[2][2], this.board[1][2], this.board[0][2]};		
 		int [] c3 = {this.board[3][3], this.board[2][3], this.board[1][3], this.board[0][3]};	 
-		subValidMotion(c0);
-		subValidMotion(c1);
-		subValidMotion(c2);
-		subValidMotion(c3);  
-
+		
+		motion(c0,c1,c2,c3);
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
 		sucBoard.set(pasaArregloAMatrizBelow(c0,c1,c2,c3));;
@@ -151,16 +145,12 @@ public class Board {
 		int [] c1 = {this.board[1][3], this.board[1][2], this.board[1][1], this.board[1][0]}; 	
 		int [] c2 = {this.board[2][3], this.board[2][2], this.board[2][1], this.board[2][0]};		
 		int [] c3 = {this.board[3][3], this.board[3][2], this.board[3][1], this.board[3][0]};	 
-		subValidMotion(c0);
-		subValidMotion(c1);
-		subValidMotion(c2);
-		subValidMotion(c3);
-
+		
+		motion(c0,c1,c2,c3);
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
 		sucBoard.set(pasaArregloAMatrizRight(c0,c1,c2,c3));;
 		return sucBoard;
-
 	}
 
 	/**
@@ -171,14 +161,11 @@ public class Board {
 		int [] c1 = {this.board[1][0], this.board[1][1], this.board[1][2], this.board[1][3]}; 	
 		int [] c2 = {this.board[2][0], this.board[2][1], this.board[2][2], this.board[2][3]};		
 		int [] c3 = {this.board[3][0], this.board[3][1], this.board[3][2], this.board[3][3]};	 
-		subValidMotion(c0);
-		subValidMotion(c1);
-		subValidMotion(c2);
-		subValidMotion(c3);
 		
+		motion(c0,c1,c2,c3);
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
-		sucBoard.set(pasaArregloAMatrizLeft(c0,c1,c2,c3));;
+		sucBoard.set(pasaArregloAMatrizLeft(c0,c1,c2,c3));
 		return sucBoard;
 	}
 	
@@ -341,5 +328,19 @@ public class Board {
 			res[3][m] = c3[m];
 		}
 		return res;
+	}
+	
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 */
+	public void motion(int [] c0, int [] c1, int [] c2, int [] c3){
+		subValidMotion(c0);
+		subValidMotion(c1);
+		subValidMotion(c2);
+		subValidMotion(c3);
 	}
 }
