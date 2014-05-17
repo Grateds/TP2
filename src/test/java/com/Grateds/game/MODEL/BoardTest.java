@@ -36,4 +36,78 @@ public class BoardTest {
 		//TODO implement this test
 		assertFalse(false);
 	}
+
+	public void testMovingUp() {
+		Board b = new Board();
+		Board res = new Board();
+	    b.set(0, 2, 4);
+	    b.set(0, 3, 8);
+	    b.set(1, 3, 16);
+	    b.set(2, 2, 4);
+	    b.set(2, 3, 32);
+	    b.set(3, 2, 4);
+	    b.set(3, 3, 0);
+	    b.set(3, 0, 2);
+	    b.movingUp();
+	    res.set(0, 0, 2);
+	    res.set(0, 2, 8);
+	    res.set(0, 3, 8);
+	    res.set(1, 2, 4);
+	    res.set(1, 3, 16);
+	    res.set(2, 3, 32);
+	    assertEquals(res.toString(),b.toString());  
+	}
+	
+	@Test
+	public void testMovingBelow() {
+		Board b = new Board();
+		Board res = new Board();
+		b.set(0, 1, 2);
+		b.set(1, 1, 2);
+		b.set(1, 2, 8);
+		b.set(1, 3, 4);
+		b.set(2, 2, 16);
+		b.set(2, 3, 16);
+		b.set(3, 1, 2);
+		b.set(3, 2, 8);
+		b.set(3, 3, 8);
+		b.movingBelow();
+		res.set(1, 2, 8);
+		res.set(1, 3, 4);
+		res.set(2, 1, 2);
+		res.set(2, 2, 16);
+		res.set(2, 3, 16);
+		res.set(3, 1, 4);
+		res.set(3, 2, 8);
+		res.set(3, 3, 8);
+		assertEquals(res.toString(),b.toString()); 
+	}
+	
+	@Test
+	public void testMovingRight(){
+		Board b = new Board();
+		Board res = new Board();
+	    b.set(0, 0, 8);
+        b.set(1, 2, 2);
+        b.set(2, 2, 4);
+        b.set(2, 3, 4);
+        b.movingRight();
+        res.set(0, 3, 8);
+        res.set(1, 3, 2);
+        res.set(2, 3, 8);
+        assertEquals(res.toString(),b.toString()); 
+	}
+	
+	@Test
+	public void testMovingLeft() {
+		Board b = new Board();
+		Board res = new Board();
+	    b.set(1, 1, 4);
+        b.set(1, 2, 4);
+        b.set(2, 3, 16);
+        b.movingLeft();
+        res.set(1, 0, 8);
+        res.set(2, 0, 16);
+        assertEquals(res.toString(),b.toString());
+	}
 }

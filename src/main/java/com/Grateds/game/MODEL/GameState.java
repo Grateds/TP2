@@ -49,7 +49,7 @@ public class GameState implements State {
 	}
 	
 	/**
-	 * 
+	 * TODO Complete this doc
 	 */
 	 @Override
 	 public String toString() {
@@ -57,7 +57,7 @@ public class GameState implements State {
 	 }
 	 
 	 /**
-	  * 
+	  * TODO Complete this doc
 	  * @return
 	  */
 	 public boolean isSucess() {
@@ -65,7 +65,7 @@ public class GameState implements State {
 	 }
 	 
 	 /**
-	  * 
+	  * TODO Complete this doc
 	  */
 	 public boolean vMU(){
 		boolean valid = false;
@@ -78,7 +78,7 @@ public class GameState implements State {
 	 }
 	 
 	 /**
-	  * 
+	  * TODO Complete this doc
 	  */
 	 public boolean vMB(){
 		 boolean valid = false;
@@ -88,10 +88,11 @@ public class GameState implements State {
 			valid = true;
 		 }
 		 return valid;	  
-	 }
+
+	}
 
 	 /**
-	  * 
+	  * TODO Complete this doc
 	  */
 	 public boolean vMR(){
 		 boolean valid = false;
@@ -104,7 +105,7 @@ public class GameState implements State {
 	 }
 	 
 	 /**
-	  * 
+	  * TODO Complete this doc
 	  */
 	 public boolean vML(){
 		 boolean valid = false;
