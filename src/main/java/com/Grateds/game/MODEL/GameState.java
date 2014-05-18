@@ -48,17 +48,19 @@ public class GameState implements State {
 		return this.board.equals(g.board);
 	}
 	
-	/**
-	 * TODO Complete this doc
-	 */
+	/** 
+	 * Returns a representation as a string of the current state. This method
+	 * must be implemented by all concrete classes implementing State.
+	 * @return a string representing the current state.
+	 */	
 	 @Override
 	 public String toString() {
 		 return this.board.toString();
 	 }
 	 
 	 /**
-	  * TODO Complete this doc
-	  * @return
+	  * Returns true iff the currente state is sucess.
+	  * @return true iff there is a 2048 on the board.
 	  */
 	 public boolean isSucess() {
 		 return this.board.contains(2048);
@@ -66,8 +68,9 @@ public class GameState implements State {
 	 
 	 /**
 	  * TODO Complete this doc
+	  * @return
 	  */
-	 public boolean vMU(){
+	 public boolean sucessMoveUp(){
 		boolean valid = false;
 		Board aux = this.board.movingUp();
 		if(!this.board.equals(aux)) {
@@ -79,8 +82,9 @@ public class GameState implements State {
 	 
 	 /**
 	  * TODO Complete this doc
+	  * @return
 	  */
-	 public boolean vMB(){
+	 public boolean sucessMoveBellow(){
 		 boolean valid = false;
 		 Board aux = this.board.movingBelow();
 		 if(!this.board.equals(aux)) {
@@ -93,8 +97,9 @@ public class GameState implements State {
 
 	 /**
 	  * TODO Complete this doc
+	  * @return
 	  */
-	 public boolean vMR(){
+	 public boolean sucessMoveRight(){
 		 boolean valid = false;
 		 Board aux = this.board.movingRight();
 		 if(!this.board.equals(aux)) {
@@ -106,8 +111,9 @@ public class GameState implements State {
 	 
 	 /**
 	  * TODO Complete this doc
+	  * @return
 	  */
-	 public boolean vML(){
+	 public boolean sucessMoveLeft(){
 		 boolean valid = false;
 		 Board aux = this.board.movingLeft();
 		 if(!this.board.equals(aux)) {

@@ -46,10 +46,10 @@ public class GameProblem implements AbstractSearchProblem<GameState>  {
 		GameState gLeft = (GameState) s;
 		GameState gRight = (GameState) s;
 		
-		if (gUp.vMU()) successors.add(gUp); 
-		if (gBelow.vMB()) successors.add(gBelow);
-		if (gLeft.vML()) successors.add(gLeft);
-		if (gRight.vMR()) successors.add(gRight);
+		if (gUp.sucessMoveUp()) successors.add(gUp); 
+		if (gBelow.sucessMoveBellow()) successors.add(gBelow);
+		if (gLeft.sucessMoveLeft()) successors.add(gLeft);
+		if (gRight.sucessMoveRight()) successors.add(gRight);
 		
 		return successors;
 	}

@@ -107,13 +107,28 @@ public class BoardTest {
 
 	@Test
 	public void testEquals() {
-		//TODO implement this test
-		assertFalse(false);
+		Board b = new Board();
+		Board c = new Board();
+		int[][] table = {
+				{128, 0, 8, 0},
+				{0, 4, 16, 16},
+				{32, 0, 1024, 16},
+				{0, 64, 0, 32}}; 
+		b.set(table);
+		c.set(table);
+		assertTrue(b.equals(c));
 	}
 	
 	@Test
 	public void testContains() {
-		//TODO implement this test
-		assertFalse(false);
+		Board b = new Board();
+		int[][] table = {
+				{128, 0, 8, 0},
+				{0, 4, 16, 16},
+				{32, 0, 1024, 16},
+				{0, 64, 0, 32}}; 
+		b.set(table);
+		assertTrue(b.contains(1024));
+		assertFalse(b.contains(3));
 	}
 }

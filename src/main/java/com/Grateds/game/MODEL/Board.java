@@ -53,9 +53,9 @@ public class Board {
 	}
 	
 	/**
-	 * TODO Complete this doc
+	 * Checks whether 'this' is equal to another board.
 	 * @param b
-	 * @return
+	 * @return true iff 'this' is equal to 'other'.
 	 */
 	public boolean equals(Board b) {
 		boolean val = true;
@@ -69,7 +69,8 @@ public class Board {
 	}
 	
 	/**
-	 * TODO Complete this doc
+	 * Returns a representation as a string of the current board.
+	 * @return a string representing the current board.
 	 */
 	public String toString() {
 		String s = "";
@@ -83,16 +84,17 @@ public class Board {
 	}
 	
 	/**
-	 * TODO Complete this doc
+	 * Turns the current board to the initial state.
 	 */
 	public void reset() {
 		this.board = new int[4][4];
 	}
 	
 	/**
-	 * TODO Complete this doc
+	 * Checks whether 'this' contains the 'x' element.
 	 * @param x
-	 * @return
+	 * 		is a type of board element.
+	 * @return true iff 'x' belongs to 'this'.
 	 */
 	public boolean contains(int x) {
 		boolean val = false;
@@ -169,11 +171,7 @@ public class Board {
 		return sucBoard;
 	}
 	
-	/**
-	 * TODO Complete this doc
-	 * @param c
-	 */
-	public void subValidMotion(int [] c){
+	private void subValidMotion(int [] c){
 		for (int m = 0; m < 4; m++) {
 			int i = 0;
 			int j = 1;
@@ -192,14 +190,7 @@ public class Board {
 		}
 	}
 	
-	/**
-	 * TODO Complete this doc
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 */
-	public int[][] pasaArregloAMatrizUp(int [] c0, int [] c1, int [] c2, int [] c3){
+	private int[][] pasaArregloAMatrizUp(int [] c0, int [] c1, int [] c2, int [] c3){
 		int[][] res = new int[4][4];
 		for (int k = 0; k < 4; k++) {
 			res[k][0] = c0[k];
@@ -216,14 +207,7 @@ public class Board {
 		return res;
 	}
 	
-	/**
-	 * TODO Complete this doc
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 */
-	public int[][] pasaArregloAMatrizBelow(int [] c0, int [] c1, int [] c2, int [] c3){
+	private int[][] pasaArregloAMatrizBelow(int [] c0, int [] c1, int [] c2, int [] c3){
 		int[][] res = new int[4][4];
 		int m = 0;
 		int k1 = 3;
@@ -259,14 +243,7 @@ public class Board {
 		return res;
 	}
 	
-	/**
-	 * TODO Complete this doc
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 */
-	public int[][] pasaArregloAMatrizRight(int [] c0, int [] c1, int [] c2, int [] c3) {
+	private int[][] pasaArregloAMatrizRight(int [] c0, int [] c1, int [] c2, int [] c3) {
 		int[][] res = new int[4][4];
 		int m = 0;
 		int k1 = 3;
@@ -306,14 +283,7 @@ public class Board {
 
 	}
 	
-	/**
-	 * TODO Complete this doc
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 */
-	public int[][] pasaArregloAMatrizLeft(int [] c0, int [] c1, int [] c2, int [] c3) {
+	private int[][] pasaArregloAMatrizLeft(int [] c0, int [] c1, int [] c2, int [] c3) {
 		int[][] res = new int[4][4];
 		for (int i = 0; i < 4; i++) {
 			res[0][i] = c0[i];
@@ -330,14 +300,7 @@ public class Board {
 		return res;
 	}
 	
-	/**
-	 * 
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 */
-	public void motion(int [] c0, int [] c1, int [] c2, int [] c3){
+	private void motion(int [] c0, int [] c1, int [] c2, int [] c3){
 		subValidMotion(c0);
 		subValidMotion(c1);
 		subValidMotion(c2);

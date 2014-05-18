@@ -9,7 +9,7 @@ import com.Grateds.game.MODEL.GameStateTest;
 @RunWith(Suite.class)
 @SuiteClasses({ AppTest.class, BoardTest.class, GameStateTest.class })
 public class TestSuite {
-
+	
 	/* empty class */
 
 }

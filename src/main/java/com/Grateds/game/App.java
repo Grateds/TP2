@@ -1,7 +1,5 @@
 package com.Grateds.game;
 
-import com.Grateds.game.MODEL.Board;
-
 /**
  * Hello world!
  *
