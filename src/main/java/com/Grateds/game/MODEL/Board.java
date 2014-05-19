@@ -1,60 +1,70 @@
 package com.Grateds.game.MODEL;
 
 /**
- * Title:        Board<p>
- * Description:  class describing the sboard for the 2048 game Problem.
- * Copyright:    Copyright (c) Grateds 2014<p>
- * Company:      Grateds<p>
+ * Title: Board
+ * Description: class describing the sboard for the 2048 game Problem.
+ * Copyright: Copyright (c) Grateds 2014
+ * Company: Grateds
+ * 
  * @author Grateds
  * @version 0.1
  */
 
 public class Board {
-	
+
 	private final int N = 4;
 	private int[][] board;
-	
+
 	/**
-	 * TODO Complete this doc
+	 * Default constructor.
 	 */
-	public Board (){
+	public Board() {
 		this.board = new int[N][N];
 	}
-	
+
 	/**
-	 * TODO Complete this doc
+	 * Returns the value at the specified position.
 	 * @param x
+	 * 		is the number of row
 	 * @param y
-	 * @return
+	 * 		is the number of column
+	 * @return the value at row 'x' and column 'y'.
+	 * @throws IndexOutOfBoundsException
 	 */
 	public int get(int x, int y) {
-		if (x < 0 || y < 0) throw new IllegalArgumentException("The position must be positive");
+		if (x < 0 || y < 0 || x > 3 || y > 3)	throw new IllegalArgumentException("The position must be on range");
 		return this.board[x][y];
 	}
 	
 	/**
-	 * TODO Complete this doc
+	 * Replace the element at the specified position with the specified element
 	 * @param x
+	 * 		is the number of row
 	 * @param y
+	 * 		is the number of column
 	 * @param value
+	 * 		is the element to be stored at the specified position
+	 * @throws IndexOutOfBoundsException
 	 */
 	public void set(int x, int y, int value) {
-		if (x < 0 || y < 0) throw new IllegalArgumentException("The position must be positive");
+		if (x < 0 || y < 0 || x > 3 || y > 3)	throw new IllegalArgumentException("The position must be on range");
 		if (value < 0) throw new IllegalArgumentException("The value must be positive");
 		this.board[x][y] = value;
 	}
-	
+
 	/**
-	 * TODO Complete this doc
+	 * Replace all elements in the matrix with the specified matrix.
 	 * @param t
+	 * 		is the matrix to clone.
 	 */
 	public void set(int[][] t) {
 		this.board = t.clone();
 	}
-	
+
 	/**
 	 * Checks whether 'this' is equal to another board.
 	 * @param b
+	 * 		is the board to compare.
 	 * @return true iff 'this' is equal to 'other'.
 	 */
 	public boolean equals(Board b) {
@@ -67,7 +77,7 @@ public class Board {
 		}
 		return val;
 	}
-	
+
 	/**
 	 * Returns a representation as a string of the current board.
 	 * @return a string representing the current board.
@@ -76,20 +86,20 @@ public class Board {
 		String s = "";
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) {
-				s = s+  this.board[i][j] +" ";
+				s = s + this.board[i][j] + " ";
 			}
 			s = s + "\n";
 		}
 		return s;
 	}
-	
+
 	/**
 	 * Turns the current board to the initial state.
 	 */
 	public void reset() {
 		this.board = new int[4][4];
 	}
-	
+
 	/**
 	 * Checks whether 'this' contains the 'x' element.
 	 * @param x
@@ -106,91 +116,110 @@ public class Board {
 		}
 		return val;
 	}
-	
+
 	/**
-	 * TODO Complete this doc
+	 * Moves the data from down to up by combining consecutive equal elements.
+	 * @return a resulting board after an "Up move".
 	 */
-	public Board movingUp(){ 
-		int [] c0 = {this.board[0][0], this.board[1][0], this.board[2][0], this.board[3][0]}; 	
-		int [] c1 = {this.board[0][1], this.board[1][1], this.board[2][1], this.board[3][1]}; 	
-		int [] c2 = {this.board[0][2], this.board[1][2], this.board[2][2], this.board[3][2]};		
-		int [] c3 = {this.board[0][3], this.board[1][3], this.board[2][3], this.board[3][3]};	   
-		
-		motion(c0,c1,c2,c3);	
-	    Board sucBoard = new Board();
-	    sucBoard.board = this.board.clone();
-	    sucBoard.set(pasaArregloAMatrizUp(c0,c1,c2,c3));;
-	    return sucBoard;
-	}
-	
-	/**
-	 * TODO Complete this doc
-	 */
-	public Board movingBelow(){ 
-		int [] c0 = {this.board[3][0], this.board[2][0], this.board[1][0], this.board[0][0]}; 	
-		int [] c1 = {this.board[3][1], this.board[2][1], this.board[1][1], this.board[0][1]}; 	
-		int [] c2 = {this.board[3][2], this.board[2][2], this.board[1][2], this.board[0][2]};		
-		int [] c3 = {this.board[3][3], this.board[2][3], this.board[1][3], this.board[0][3]};	 
-		
-		motion(c0,c1,c2,c3);
+	public Board movingUp() {
+		int[] col0 = { this.board[0][0], this.board[1][0], this.board[2][0], this.board[3][0] };
+		int[] col1 = { this.board[0][1], this.board[1][1], this.board[2][1], this.board[3][1] };
+		int[] col2 = { this.board[0][2], this.board[1][2], this.board[2][2], this.board[3][2] };
+		int[] col3 = { this.board[0][3], this.board[1][3], this.board[2][3], this.board[3][3] };
+
+		motion(col0, col1, col2, col3);
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
-		sucBoard.set(pasaArregloAMatrizBelow(c0,c1,c2,c3));;
-		return sucBoard;
-	}
-	
-	/**
-	 * TODO Complete this doc
-	 */
-	public Board movingRight(){ 
-		int [] c0 = {this.board[0][3], this.board[0][2], this.board[0][1], this.board[0][0]}; 	
-		int [] c1 = {this.board[1][3], this.board[1][2], this.board[1][1], this.board[1][0]}; 	
-		int [] c2 = {this.board[2][3], this.board[2][2], this.board[2][1], this.board[2][0]};		
-		int [] c3 = {this.board[3][3], this.board[3][2], this.board[3][1], this.board[3][0]};	 
-		
-		motion(c0,c1,c2,c3);
-		Board sucBoard = new Board();
-		sucBoard.board = this.board.clone();
-		sucBoard.set(pasaArregloAMatrizRight(c0,c1,c2,c3));;
+		sucBoard.set(pasaArregloAMatrizUp(col0, col1, col2, col3));
+		;
 		return sucBoard;
 	}
 
 	/**
-	 * TODO Complete this doc
+	 * Moves the data from up to down by combining consecutive equal elements.
+	 * @return a resulting board after a "Down move".
 	 */
-	public Board movingLeft(){
-		int [] c0 = {this.board[0][0], this.board[0][1], this.board[0][2], this.board[0][3]}; 	
-		int [] c1 = {this.board[1][0], this.board[1][1], this.board[1][2], this.board[1][3]}; 	
-		int [] c2 = {this.board[2][0], this.board[2][1], this.board[2][2], this.board[2][3]};		
-		int [] c3 = {this.board[3][0], this.board[3][1], this.board[3][2], this.board[3][3]};	 
-		
-		motion(c0,c1,c2,c3);
+	public Board movingBelow() {
+		int[] col0 = { this.board[3][0], this.board[2][0], this.board[1][0], this.board[0][0] };
+		int[] col1 = { this.board[3][1], this.board[2][1], this.board[1][1], this.board[0][1] };
+		int[] col2 = { this.board[3][2], this.board[2][2], this.board[1][2], this.board[0][2] };
+		int[] col3 = { this.board[3][3], this.board[2][3], this.board[1][3], this.board[0][3] };
+
+		motion(col0, col1, col2, col3);
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
-		sucBoard.set(pasaArregloAMatrizLeft(c0,c1,c2,c3));
+		sucBoard.set(pasaArregloAMatrizBelow(col0, col1, col2, col3));
+		;
 		return sucBoard;
 	}
-	
-	private void subValidMotion(int [] c){
-		for (int m = 0; m < 4; m++) {
-			int i = 0;
-			int j = 1;
-			while (i < j && j < 4) {
-				if (c[i] == 0){
-					c[i] = c[j];
-			    	c[j] = 0;
-			    }
-			    if (c[i] == c[j]){
-			    	c[i] += c[j];
-			    	c[j] = 0;
-			    }
-			    i = j;
-			    j++;
-			}	
+
+	/**
+	 * Moves the data from left to right by combining consecutive equal elements.
+	 * @return a resulting board after a "Right move".
+	 */
+	public Board movingRight() {
+		int[] row0 = { this.board[0][3], this.board[0][2], this.board[0][1], this.board[0][0] };
+		int[] row1 = { this.board[1][3], this.board[1][2], this.board[1][1], this.board[1][0] };
+		int[] row2 = { this.board[2][3], this.board[2][2], this.board[2][1], this.board[2][0] };
+		int[] row3 = { this.board[3][3], this.board[3][2], this.board[3][1], this.board[3][0] };
+
+		motion(row0, row1, row2, row3);
+		Board sucBoard = new Board();
+		sucBoard.board = this.board.clone();
+		sucBoard.set(pasaArregloAMatrizRight(row0, row1, row2, row3));
+		;
+		return sucBoard;
+	}
+
+	/**
+	 * Moves the data from right to left by combining consecutive equal elements.
+	 * @return a resulting board after a "Left move".
+	 */
+	public Board movingLeft() {
+		int[] row0 = { this.board[0][0], this.board[0][1], this.board[0][2], this.board[0][3] };
+		int[] row1 = { this.board[1][0], this.board[1][1], this.board[1][2], this.board[1][3] };
+		int[] row2 = { this.board[2][0], this.board[2][1], this.board[2][2], this.board[2][3] };
+		int[] row3 = { this.board[3][0], this.board[3][1], this.board[3][2], this.board[3][3] };
+
+		motion(row0, row1, row2, row3);
+		Board sucBoard = new Board();
+		sucBoard.board = this.board.clone();
+		sucBoard.set(pasaArregloAMatrizLeft(row0, row1, row2, row3));
+		return sucBoard;
+	}
+
+	private void subValidMotion(int[] c) {
+		int i = 0;
+		int j = 1;
+		while (j < 4) {
+			if (c[i] == 0 && c[j] == 0) {
+				j++;
+			}else
+			if (c[i] != 0 && c[j] == 0) {
+				j++;
+			}else		
+			if (c[i] == 0 && c[j] != 0) {
+				c[i] = c[j];
+				c[j] = 0;
+				j++;
+			}else
+			if (c[i] != 0 && c[j] != 0 && c[i] == c[j]) {
+				c[i] += c[j];
+				c[j] = 0;
+				i++; j++;
+			}else
+			if (c[i] != 0 && c[j] != 0 && c[i] != c[j]) {
+				if (c[i+1] == 0) {
+					c[i+1] = c[j];
+					c[j] = 0;
+				}
+				i++;
+				j++;
+			}
 		}
 	}
-	
-	private int[][] pasaArregloAMatrizUp(int [] c0, int [] c1, int [] c2, int [] c3){
+
+	private int[][] pasaArregloAMatrizUp(int[] c0, int[] c1, int[] c2, int[] c3) {
 		int[][] res = new int[4][4];
 		for (int k = 0; k < 4; k++) {
 			res[k][0] = c0[k];
@@ -206,8 +235,9 @@ public class Board {
 		}
 		return res;
 	}
-	
-	private int[][] pasaArregloAMatrizBelow(int [] c0, int [] c1, int [] c2, int [] c3){
+
+	private int[][] pasaArregloAMatrizBelow(int[] c0, int[] c1, int[] c2,
+			int[] c3) {
 		int[][] res = new int[4][4];
 		int m = 0;
 		int k1 = 3;
@@ -234,7 +264,7 @@ public class Board {
 		}
 		int p = 0;
 		int k4 = 3;
-		while ( p < 4) {
+		while (p < 4) {
 
 			res[k4][3] = c3[p];
 			k4--;
@@ -242,8 +272,9 @@ public class Board {
 		}
 		return res;
 	}
-	
-	private int[][] pasaArregloAMatrizRight(int [] c0, int [] c1, int [] c2, int [] c3) {
+
+	private int[][] pasaArregloAMatrizRight(int[] c0, int[] c1, int[] c2,
+			int[] c3) {
 		int[][] res = new int[4][4];
 		int m = 0;
 		int k1 = 3;
@@ -273,7 +304,7 @@ public class Board {
 		}
 		int p = 0;
 		int k4 = 3;
-		while ( p < 4) {
+		while (p < 4) {
 
 			res[3][k4] = c3[p];
 			k4--;
@@ -282,8 +313,9 @@ public class Board {
 		return res;
 
 	}
-	
-	private int[][] pasaArregloAMatrizLeft(int [] c0, int [] c1, int [] c2, int [] c3) {
+
+	private int[][] pasaArregloAMatrizLeft(int[] c0, int[] c1, int[] c2,
+			int[] c3) {
 		int[][] res = new int[4][4];
 		for (int i = 0; i < 4; i++) {
 			res[0][i] = c0[i];
@@ -299,8 +331,8 @@ public class Board {
 		}
 		return res;
 	}
-	
-	private void motion(int [] c0, int [] c1, int [] c2, int [] c3){
+
+	private void motion(int[] c0, int[] c1, int[] c2, int[] c3) {
 		subValidMotion(c0);
 		subValidMotion(c1);
 		subValidMotion(c2);
