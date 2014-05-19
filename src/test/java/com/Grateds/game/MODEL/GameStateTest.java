@@ -60,39 +60,74 @@ public class GameStateTest {
 	}
 
 	@Test
-	public void testSucessMoveUp() {
+	public void testFailMoveUp() {
 		Board b = new Board();
 		b.set(table4);
 		GameState g = new GameState(b);
 		
 		assertFalse(g.sucessMoveUp());
 	}
+	
+	@Test
+	public void testSucessMoveUp() {
+		Board b = new Board();
+		b.set(table3);
+		GameState g = new GameState(b);
+		
+		assertTrue(g.sucessMoveUp());
+	}
 
 	@Test
-	public void testSucessMoveBellow() {
+	public void testFailMoveBellow() {
 		Board b = new Board();
 		b.set(table3);
 		GameState g = new GameState(b);
 		
 		assertFalse(g.sucessMoveBellow());
 	}
+	
+	@Test
+	public void testSucessMoveBellow() {
+		Board b = new Board();
+		b.set(table4);
+		GameState g = new GameState(b);
+		
+		assertTrue(g.sucessMoveBellow());
+	}
 
 	@Test
-	public void testSucessMoveRight() {
+	public void testFailMoveRight() {
 		Board b = new Board();
 		b.set(table4);
 		GameState g = new GameState(b);
 		
 		assertFalse(g.sucessMoveRight());
 	}
-
+	
 	@Test
-	public void testSucessMoveLeft() {
+	public void testSucessMoveRight() {
+		Board b = new Board();
+		b.set(table3);
+		GameState g = new GameState(b);
+		
+		assertTrue(g.sucessMoveRight());
+	}
+	
+	@Test
+	public void testFailMoveLeft() {
 		Board b = new Board();
 		b.set(table3);
 		GameState g = new GameState(b);
 		
 		assertFalse(g.sucessMoveLeft());
 	}
-
+	
+	@Test
+	public void testSucessMoveLeft() {
+		Board b = new Board();
+		b.set(table4);
+		GameState g = new GameState(b);
+		
+		assertTrue(g.sucessMoveLeft());
+	}
 }
