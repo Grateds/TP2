@@ -167,7 +167,7 @@ public class Board {
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
 		sucBoard.set(pasaArregloAMatrizRight(row0, row1, row2, row3));
-		;
+		
 		return sucBoard;
 	}
 

@@ -6,11 +6,11 @@ import java.util.List;
 import com.Grateds.game.AI.AbstractSearchProblem;
 
 /**
- * Title:        GameProblem<p>
- * Description:  class describing the basic for the two 2048 game as a search problem.
- * It extends the abstract class AbstractSearchProblem. <p>
- * Copyright:    Copyright (c) Grateds 2014<p>
- * Company:      Grateds<p>
+ * Title: GameProblem
+ * Description: class describing the basic for the two 2048 game as a search problem.
+ * It extends the abstract class AbstractSearchProblem. 
+ * Copyright: Copyright (c) Grateds 2014
+ * Company: Grateds
  * @author Grateds
  * @version 0.1
  */
@@ -56,6 +56,8 @@ public class GameProblem implements AbstractSearchProblem<GameState>  {
     
 	/**
 	 * TODO Complete this doc
+	 * @param s
+	 * @return 
 	 */
 	@Override
 	public boolean success(GameState s) {
@@ -64,10 +66,10 @@ public class GameProblem implements AbstractSearchProblem<GameState>  {
 	
 	/**
 	 * TODO Complete this doc
+	 * @param s
+	 * @return
 	 */
-	@SuppressWarnings("unused") // Suppress this warning once implemented 
-	private int val(GameState s) {
-		// TODO Implement this method
-		return 0;
+	public boolean gameOver(GameState s) {
+		return this.getSuccessors(s).size() == 0;
 	}
 }
