@@ -130,4 +130,31 @@ public class GameStateTest {
 		
 		assertTrue(g.sucessMoveLeft());
 	}
+	
+	// For run this tests, remove comments and change the access
+	// modifiers on methods (val(Board b) and posGreater(Board b)) to "public"
+//	@Test
+//	public void testValuation() {
+//		int[][] t = {
+//				{128, 0, 8, 0},
+//				{2, 4, 16, 16},
+//				{32, 8, 1024, 16},
+//				{2048, 64, 3, 32}};
+//		
+//		Board b = new Board();
+//		b.set(t);
+//		GameState g = new GameState(b);
+//		int result = g.val(b);
+//		assertEquals(4, result);
+//	}
+//	
+//	@Test
+//	public void testPositionGreater() {		
+//		Board b = new Board();
+//		b.set(table2);
+//		GameState g = new GameState(b);
+//		int[] result = g.posGreater(b);
+//		assertEquals(2, result[0]);
+//		assertEquals(1, result[1]);
+//	}
 }
