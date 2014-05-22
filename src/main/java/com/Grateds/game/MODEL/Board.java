@@ -1,5 +1,7 @@
 package com.Grateds.game.MODEL;
 
+import java.util.Observable;
+
 /**
  * Title: Board
  * Description: class describing the sboard for the 2048 game Problem.
@@ -10,7 +12,7 @@ package com.Grateds.game.MODEL;
  * @version 0.1
  */
 
-public class Board {
+public class Board extends Observable {
 
 	private final int N = 4;
 	private int[][] board;
@@ -50,6 +52,8 @@ public class Board {
 		if (x < 0 || y < 0 || x > 3 || y > 3)	throw new IllegalArgumentException("The position must be on range");
 		if (value < 0) throw new IllegalArgumentException("The value must be positive");
 		this.board[x][y] = value;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	/**
@@ -59,6 +63,8 @@ public class Board {
 	 */
 	public void set(int[][] t) {
 		this.board = t.clone();
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	/**
@@ -98,6 +104,8 @@ public class Board {
 	 */
 	public void reset() {
 		this.board = new int[4][4];
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	/**

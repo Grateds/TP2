@@ -1,5 +1,8 @@
 package com.Grateds.game;
 
+import com.Grateds.game.CONTROLLER.Controller;
+import com.Grateds.game.GUI.Puzzle;
+
 /**
  * Hello world!
  *
@@ -7,6 +10,10 @@ package com.Grateds.game;
 public class App {
 	
     public static void main( String[] args ) {
-        System.out.println( "Hello World!" );
+    	System.out.println( "Hello World!" );
+    	Controller controller = new Controller();
+    	Puzzle puzzle = new Puzzle(controller);
+        puzzle.setVisible(true);
+        controller.startGame();
     }
 }
