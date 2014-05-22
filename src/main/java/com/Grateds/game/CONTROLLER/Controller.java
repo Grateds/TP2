@@ -20,7 +20,7 @@ public class Controller {
 	
 	public void startGame() {
 		// TODO Complete this method with adversary
-		// Test example
+		// Sample test
 		int[][] t = {
 				{128, 0, 8, 0},
 				{0, 4, 16, 16},

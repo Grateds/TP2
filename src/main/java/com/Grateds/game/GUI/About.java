@@ -1,19 +1,8 @@
 package com.Grateds.game.GUI;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * dlgAcercaDe.java
- *
- * Created on 18/08/2011, 07:45:52 PM
- */
-
 /**
- * 
- * @author Edixon Vargas
+ * TODO Complete this doc
+ * @author Grateds
  */
 public class About extends javax.swing.JDialog {
 
@@ -38,11 +27,11 @@ public class About extends javax.swing.JDialog {
 		setResizable(false);
 
 		jLabel1.setFont(new java.awt.Font("Tahoma", 1, 40)); // NOI18N
-		jLabel1.setText("<html><a href=\"http://varper-tech.com\">VARPER Tech</a></html>\n");
+		jLabel1.setText("<html><a href=\"https://github.com/Grateds\">Grateds</a></html>\n");
 
-		jLabel2.setText("<html> Este programa ha sido generado para propositos didacticos y su funcionamiento puede no ser perfecto ya que carece de todas las pruebas necesarias para tal fin.<br/><br/>  Para mayor informacion dirijase al sitio <a href=\"http://varper-tech.com\">http://varper-tech.com</a> y allí podra dejarnos sus comentarios acerca de este proyecto<br/><br/>  Version: 1.0 </html>");
+		jLabel2.setText("<html> This program was made as a request for approval the <b>Algorithms II</b> course.<br/><br/>  More info here: <a href=\"https://github.com/GratedsTP2\">https://github.com/Grateds/TP2</a> .<br/><br/> Any changes are welcome! Feel free to fork and open a pull request.<br/><br/>  Version: 1.0 </html>");
 
-		jButton1.setText("Aceptar");
+		jButton1.setText("Accept");
 		jButton1.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				jButton1ActionPerformed(evt);

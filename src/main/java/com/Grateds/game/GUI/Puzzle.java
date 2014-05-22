@@ -1,15 +1,5 @@
 package com.Grateds.game.GUI;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
- * Puzzle.java
- *
- * Created on 17/08/2011, 08:10:17 PM
- */
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -17,12 +7,11 @@ import javax.swing.JButton;
 import com.Grateds.game.CONTROLLER.Controller;
 import com.Grateds.game.MODEL.Board;
 import java.awt.Point;
-import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
 /**
- *
+ * TODO Complete this doc
  * @author Grateds
  */
 public class Puzzle extends javax.swing.JFrame implements Observer  {
@@ -32,34 +21,15 @@ public class Puzzle extends javax.swing.JFrame implements Observer  {
     private Controller controller;
     private Board board;
     
-    private HashMap<Integer,JButton> map = new HashMap<Integer,JButton>(); 
-    		
-    /** Creates new form Puzzle */
     public Puzzle(Controller c) {
     	this.controller = c;
     	this.board = c.getBoard();
-    	this.initMap();
     	this.board.addObserver(this);
         this.initComponents();
         this.setLocationRelativeTo(getOwner());
         this.controller.initialization();
     }
 
-    private void initMap() {
-    	map.put(0, new JButton("0"));
-    	map.put(2, new JButton("2"));
-    	map.put(4, new JButton("4"));
-    	map.put(8, new JButton("8"));
-    	map.put(16, new JButton("16"));
-    	map.put(32, new JButton("32"));
-    	map.put(64, new JButton("64"));
-    	map.put(128, new JButton("128"));
-    	map.put(256, new JButton("256"));
-    	map.put(512, new JButton("512"));
-    	map.put(1024, new JButton("1024"));
-    	map.put(2048, new JButton("2048"));
-    }
-    
     private void initComponents() {
 
         panelPrincipal = new javax.swing.JPanel();
