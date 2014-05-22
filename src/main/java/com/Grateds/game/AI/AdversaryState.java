@@ -1,5 +1,6 @@
 package com.Grateds.game.AI;
 
+import AI.AdversarySearchState;
 import com.Grateds.game.MODEL.Board;
 
 public class AdversaryState implements AdversarySearchState {

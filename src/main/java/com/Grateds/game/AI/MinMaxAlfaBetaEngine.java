@@ -1,5 +1,9 @@
 package com.Grateds.game.AI;
 
+import AI.AdversarySearchEngine;
+import AI.AdversarySearchProblem;
+import AI.AdversarySearchState;
+
 /**
  * Title:        MinMaxAlfaBetaEngine<p>
  * Description:  Class MinMaxAlfaBetaEngine implements a Alfa Beta search 
@@ -11,8 +15,6 @@ package com.Grateds.game.AI;
  * @version 0.1
  */
 
-
-@SuppressWarnings("hiding")
 public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<State>, State extends AdversarySearchState>  extends AdversarySearchEngine<P, State> {
 
 	/** 

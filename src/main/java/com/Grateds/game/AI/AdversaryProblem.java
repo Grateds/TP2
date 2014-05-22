@@ -2,7 +2,7 @@ package com.Grateds.game.AI;
 
 import java.util.LinkedList;
 import java.util.List;
-
+import AI.AdversarySearchProblem;
 import com.Grateds.game.MODEL.Board;
 
 public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> {
