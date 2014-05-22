@@ -21,7 +21,7 @@ public class About extends javax.swing.JDialog {
 		jButton1 = new javax.swing.JButton();
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-		setTitle("Acerca de Puzzle");
+		setTitle("About");
 		setLocationByPlatform(true);
 		setModal(true);
 		setResizable(false);
