@@ -62,7 +62,6 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 
 	@Override
 	public boolean end(AdversaryState state) {
-		// TODO refactor sucessMoveLeft(etc) todos falso y que no alla ceros
 		int cont = 0;
 		boolean zero = false;
 		for (int i = 0; i < 4; i++) {
