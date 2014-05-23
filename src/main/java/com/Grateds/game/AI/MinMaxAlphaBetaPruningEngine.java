@@ -22,7 +22,6 @@ import AI.AdversarySearchState;
 public class MinMaxAlphaBetaPruningEngine<P extends AdversarySearchProblem<S>, S extends AdversarySearchState> extends AdversarySearchEngine<P,S>{
 
 	private int visited;
-    private List<S> path; // used to store the path to the success.
     private int alpha;
     private int beta;
     
@@ -34,7 +33,6 @@ public class MinMaxAlphaBetaPruningEngine<P extends AdversarySearchProblem<S>, S
 	public MinMaxAlphaBetaPruningEngine() {
 		this.maxDepth = 1;
 		this.visited = -1;
-		this.path = new LinkedList<S>();
 		this.alpha = 1;
 		this.beta = -1;
 	};
@@ -53,7 +51,6 @@ public class MinMaxAlphaBetaPruningEngine<P extends AdversarySearchProblem<S>, S
     	this.alpha = p.minValue();
     	this.beta = p.maxValue();
     	this.visited = 0;
-    	this.path = new LinkedList<S>();
     }
     
 	/** 
@@ -140,15 +137,11 @@ public class MinMaxAlphaBetaPruningEngine<P extends AdversarySearchProblem<S>, S
 	private int aphaBetaPruning(S s, int a, int b, int d) {
 		visited++;
         if (d==0 || this.problem.end(s)) {
-			path.add(0,s); 
 			return this.problem.value(s);
 		} else {
 			List<S> succ = problem.getSuccessors(s);
 			for (S leaf : succ) {
 				if (alpha > beta) break;
-				
-				path.add(leaf);
-				
 				if (s.isMax()) alpha = Math.max(alpha, aphaBetaPruning(leaf, a, b, d-1));
 				else beta = Math.min(beta, aphaBetaPruning(leaf, a, b, d-1));
 			}
@@ -159,7 +152,6 @@ public class MinMaxAlphaBetaPruningEngine<P extends AdversarySearchProblem<S>, S
 	
 	@Override
 	public void report() {
-		System.out.println("Length of path to state when search finished: "+path.size());
 		System.out.println("Number of visited when search finished: "+visited);
 	}
 } 
