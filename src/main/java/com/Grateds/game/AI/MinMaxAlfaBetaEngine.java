@@ -1,5 +1,8 @@
 package com.Grateds.game.AI;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import AI.AdversarySearchEngine;
 import AI.AdversarySearchProblem;
 import AI.AdversarySearchState;
@@ -10,20 +13,30 @@ import AI.AdversarySearchState;
                  strategy which can be used with any instance of 
 		         AbstractSearchProblem.<p>
  * Copyright:    Copyright (c) Grateds 2014<p>
- * Company:      Grateds <p>
+ * Company:      Grateds <p	
+    private List<S> visited; // used to store the visited states
+    private List<S> path; // used to store the path to the success.>
  * @author Grateds
  * @version 0.1
  */
+public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<S>, S extends AdversarySearchState> extends AdversarySearchEngine<P,S>{
 
-public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<State>, State extends AdversarySearchState>  extends AdversarySearchEngine<P, State> {
-
+    private List<S> visited; // used to store the visited states
+    private List<S> path; // used to store the path to the success.
+    private int alpha;
+    private int beta;
+    
 	/** 
 	 * Constructor for abstract class AdversarySearchEngine 
 	 * @pre. true.
 	 * @post. This constructor sets maxDepth to 1.
 	 */
 	public MinMaxAlfaBetaEngine() {
-		maxDepth = 1;
+		this.maxDepth = 1;
+		this.visited = new LinkedList<S>();
+		this.path = new LinkedList<S>();
+		this.alpha = 1;
+		this.beta = -1;
 	};
     
 	/** 
@@ -35,8 +48,12 @@ public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<State>, State
 	 * is set to 1.
 	 */	
     public MinMaxAlfaBetaEngine(P p) {
-        problem = p;
-        maxDepth = 1;
+    	this.problem = p;
+    	this.maxDepth = 1;
+    	this.alpha = p.minValue();
+    	this.beta = p.maxValue();
+    	this.visited = new LinkedList<S>();
+    	this.path = new LinkedList<S>();
     }
     
 	/** 
@@ -49,8 +66,10 @@ public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<State>, State
 	 * this.maxDepth is set to maxDepth.
 	 */	
     public MinMaxAlfaBetaEngine(P p, int maxDepth) {
-        problem = p;
+    	this.problem = p;
         this.maxDepth = maxDepth;
+        this.alpha = p.minValue();
+        this.beta = p.maxValue();
     }
     
 	/** 
@@ -85,7 +104,7 @@ public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<State>, State
 	 * @post. this.problem is returned.
 	 */	 
 	public P getProblem() {
-		return problem;
+		return this.problem;
 	}
 
 	/** 
@@ -95,24 +114,64 @@ public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<State>, State
 	 * @post. 'problem' is set to p.
 	 */	
     public void setProblem(P p) {
-        problem = p;
+    	this.problem = p;
     }
 
 	@Override
-	public int computeValue(State state) {
+	public int computeValue(S state) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public State computeSuccessor(State state) {
-		// TODO Auto-generated method stub
-		return null;
+	public S computeSuccessor(S state) {
+	      
+		// first, we initialise the data structures for the search
+		this.visited = new LinkedList<S>();
+		// we get the initial state
+		S initialState = this.problem.initialState();
+
+		S resultSearch = minMaxAB(initialState,this.alpha,this.beta,this.maxDepth);
+		return resultSearch;
 	}
 
+	private S minMaxAB(S s, int a, int b, int d) {
+		if (!this.visited.contains(s)) {
+			this.visited.add(0, s); // we add s to the list of visited   
+            if (this.problem.end(s)) {
+				
+            	this.path.add(0,s); // we add the success state to the path
+				return s;
+			
+			} // end then branch
+			else {
+				
+				List<S> succ_s = this.problem.getSuccessors(s);
+				S found = null;
+				while ( (!succ_s.isEmpty()) && (found == null) )  {
+					
+					S child = succ_s.get(0);
+					succ_s.remove(0);
+					found = minMaxAB(child, a, b, d-1);
+					
+				} // end while
+				if (found != null) {
+					// s leads to a success, so we add it to the path
+					this.path.add(0, s);
+				}
+				return found;
+				
+			} // end else branch
+        }
+		else {
+			return null;
+		}
+    } // end of recursiveDepthFirst
+	
 	@Override
 	public void report() {
-		// TODO Auto-generated method stub
-		
-	}
+        System.out.println("Length of path to state when search finished: "+this.path.size());
+		System.out.println("Number of visited when search finished: "+this.visited.size());
+    } // end of report()
+	
 } // end of class DepthFirst
