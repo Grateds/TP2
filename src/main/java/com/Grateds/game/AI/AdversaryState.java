@@ -173,7 +173,7 @@ public class AdversaryState implements AdversarySearchState {
 	 * @param y
 	 * @return
 	 */
-	private boolean isZero(int x, int y) {
+	public boolean isZero(int x, int y) {
 		if (x > -1  && x < 4 && y > 0 && y < 4) return this.board.get(x, y) == 0;
 		else return false;
 	}
