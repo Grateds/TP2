@@ -22,6 +22,18 @@ public class Board extends Observable {
 	 */
 	public Board() {
 		this.board = new int[N][N];
+		
+		int x = (int) Math.random()*3;
+		int y = (int) Math.random()*3;
+		int r = (int) Math.random()*1;
+		this.set(x, y, r==0 ? 2 : 4);
+		
+		r = (int) Math.random()*1;
+		x = (int) Math.random() * 3;
+		y = (int) Math.random() * 3;
+		while (this.get(x, y) == 0){
+			this.set(x, y, r==0 ? 2 : 4);
+		}
 	}
 
 	/**
@@ -346,4 +358,5 @@ public class Board extends Observable {
 		subValidMotion(c2);
 		subValidMotion(c3);
 	}
+	
 }
