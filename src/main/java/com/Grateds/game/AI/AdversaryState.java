@@ -27,6 +27,14 @@ public class AdversaryState implements AdversarySearchState {
 		return this.isMax;
 	}
 
+	public void setMax() {
+		this.isMax = true;
+	}
+	
+	public void setMin() {
+		this.isMax = false;
+	}
+	
 	@Override
 	public boolean equals(AdversarySearchState other) {
 		if (other == null)	throw new IllegalArgumentException("The state must not be null");
@@ -108,5 +116,85 @@ public class AdversaryState implements AdversarySearchState {
 			valid = true;
 		}
 		return valid;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getValoration(){
+		return this.val(this.board);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public Board getBoard(){
+		return this.board;
+	}
+	
+	/**
+	 * 
+	 * @param b
+	 * @return
+	 */
+	private int val(Board b) {
+		int[] pos = this.posGreater(b);
+		int i = pos[0];
+		int j =	pos[1];
+		int count = 0;
+		for (int n = 1; n <= 3; n++) {
+			count = n;
+			if (isZero(i-n,j-1) || isZero(i,j-1) || isZero(i+n,j-1) || isZero(i+n,j) || isZero(i+n,j+1) || isZero(i,j+1) || isZero(i-n,j+1) || isZero(i-n,j)) 
+				break;
+		}
+		return count + countSub(this.board.get(i, j)/2);
+	}
+	
+	/**
+	 * 
+	 * @param n
+	 * @return
+	 */
+	private int countSub(int n) {
+		int count = 0;
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				if (this.board.get(i, j) == n) count++;
+			}
+		}
+		return count;
+	}
+	
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	private boolean isZero(int x, int y) {
+		if (x > -1  && x < 4 && y > 0 && y < 4) return this.board.get(x, y) == 0;
+		else return false;
+	}
+	
+	/**
+	 * 
+	 * @param b
+	 * @return
+	 */
+	private int[] posGreater(Board b) {
+		int aux = 0;
+		int[] temp = { 0, 0 };
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				if (b.get(i, j) >= aux) {
+					aux = b.get(i, j);
+					temp[0] = i;
+					temp[1] = j;
+				}
+			}
+		}
+		return temp;
 	}
 }
