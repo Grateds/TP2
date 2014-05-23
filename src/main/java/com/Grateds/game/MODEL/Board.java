@@ -32,13 +32,12 @@ public class Board extends Observable {
 		int y = (int) (Math.random() * (3  + 1));
 		int r = (int) (Math.random() * 2);
 		this.set(x, y, r==0 ? 2 : 4);
-		
-		x = (int) (Math.random() * (3  + 1));
-		y = (int) (Math.random() * (3  + 1));
-		r = (int) (Math.random() * 2);
-		while (this.get(x, y) == 0) {
-			this.set(x, y, r==0 ? 2 : 4);
+		while (this.get(x, y) != 0) {
+			x = (int) (Math.random() * (3  + 1));
+			y = (int) (Math.random() * (3  + 1));
+			r = (int) (Math.random() * 2);
 		}
+		this.set(x, y, r==0 ? 2 : 4);
 	}
 
 	/**
