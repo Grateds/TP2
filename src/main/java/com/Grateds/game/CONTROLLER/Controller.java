@@ -6,27 +6,33 @@ public class Controller {
 	
 	private Board board;
 	
+	/**
+	 * TODO Complete this doc
+	 */
 	public Controller() {
 		this.board = new Board();
 	}
 	
+	/**
+	 * TODO Complete this doc
+	 * @return
+	 */
 	public Board getBoard() {
 		return this.board;
 	}
 	
+	/**
+	 * TODO Complete this doc
+	 */
 	public void initialization() {
 		this.board.reset();
 	}
 	
+	/**
+	 * TODO Complete this doc
+	 */
 	public void startGame() {
 		// TODO Complete this method with adversary
-		// Sample test
-		System.out.println(this.board.toString());
-		int[][] t = {
-				{128, 0, 8, 0},
-				{0, 4, 16, 16},
-				{32, 2048, 1024, 16},
-				{0, 64, 0, 32}};
-		this.board.set(t);
+		this.board.initialization();
 	}
 }
