@@ -9,7 +9,7 @@ import AI.AdversarySearchState;
 
 /**
  * Title:        MinMaxAlfaBetaEngine<p>
- * Description:  Class MinMaxAlfaBetaEngine implements a Alfa Beta search 
+ * Description:  Class MinMaxAlfaBetaEngine implements a Alpha Beta search 
                  strategy which can be used with any instance of 
 		         AbstractSearchProblem.<p>
  * Copyright:    Copyright (c) Grateds 2014<p>
@@ -19,9 +19,9 @@ import AI.AdversarySearchState;
  * @author Grateds
  * @version 0.1
  */
-public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<S>, S extends AdversarySearchState> extends AdversarySearchEngine<P,S>{
+public class MinMaxAlphaBetaPruningEngine<P extends AdversarySearchProblem<S>, S extends AdversarySearchState> extends AdversarySearchEngine<P,S>{
 
-    private List<S> visited; // used to store the visited states
+	private int visited;
     private List<S> path; // used to store the path to the success.
     private int alpha;
     private int beta;
@@ -31,9 +31,9 @@ public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<S>, S extends
 	 * @pre. true.
 	 * @post. This constructor sets maxDepth to 1.
 	 */
-	public MinMaxAlfaBetaEngine() {
+	public MinMaxAlphaBetaPruningEngine() {
 		this.maxDepth = 1;
-		this.visited = new LinkedList<S>();
+		this.visited = -1;
 		this.path = new LinkedList<S>();
 		this.alpha = 1;
 		this.beta = -1;
@@ -47,12 +47,12 @@ public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<S>, S extends
 	 * @post. A reference to p is stored in field problem and maxDepth
 	 * is set to 1.
 	 */	
-    public MinMaxAlfaBetaEngine(P p) {
+    public MinMaxAlphaBetaPruningEngine(P p) {
     	this.problem = p;
     	this.maxDepth = 1;
     	this.alpha = p.minValue();
     	this.beta = p.maxValue();
-    	this.visited = new LinkedList<S>();
+    	this.visited = 0;
     	this.path = new LinkedList<S>();
     }
     
@@ -65,7 +65,7 @@ public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<S>, S extends
 	 * @post. A reference to p is stored in field problem and 
 	 * this.maxDepth is set to maxDepth.
 	 */	
-    public MinMaxAlfaBetaEngine(P p, int maxDepth) {
+    public MinMaxAlphaBetaPruningEngine(P p, int maxDepth) {
     	this.problem = p;
         this.maxDepth = maxDepth;
         this.alpha = p.minValue();
@@ -119,59 +119,47 @@ public class MinMaxAlfaBetaEngine<P extends AdversarySearchProblem<S>, S extends
 
 	@Override
 	public int computeValue(S state) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.aphaBetaPruning(state, alpha, beta, maxDepth);
 	}
 
 	@Override
 	public S computeSuccessor(S state) {
-	      
-		// first, we initialise the data structures for the search
-		this.visited = new LinkedList<S>();
-		// we get the initial state
-		S initialState = this.problem.initialState();
-
-		S resultSearch = minMaxAB(initialState,this.alpha,this.beta,this.maxDepth);
-		return resultSearch;
+		List<S> succ = problem.getSuccessors(state);
+		S res = null;
+		int helper = Integer.MIN_VALUE;
+		for(S leaf : succ){
+			int value = computeValue(leaf);
+			if ( value > helper){
+				helper = value;
+				res = leaf;
+			}
+		}
+		return res;
 	}
 
-	private S minMaxAB(S s, int a, int b, int d) {
-		if (!this.visited.contains(s)) {
-			this.visited.add(0, s); // we add s to the list of visited   
-            if (this.problem.end(s)) {
+	private int aphaBetaPruning(S s, int a, int b, int d) {
+		visited++;
+        if (d==0 || this.problem.end(s)) {
+			path.add(0,s); 
+			return this.problem.value(s);
+		} else {
+			List<S> succ = problem.getSuccessors(s);
+			for (S leaf : succ) {
+				if (alpha > beta) break;
 				
-            	this.path.add(0,s); // we add the success state to the path
-				return s;
-			
-			} // end then branch
-			else {
+				path.add(leaf);
 				
-				List<S> succ_s = this.problem.getSuccessors(s);
-				S found = null;
-				while ( (!succ_s.isEmpty()) && (found == null) )  {
-					
-					S child = succ_s.get(0);
-					succ_s.remove(0);
-					found = minMaxAB(child, a, b, d-1);
-					
-				} // end while
-				if (found != null) {
-					// s leads to a success, so we add it to the path
-					this.path.add(0, s);
-				}
-				return found;
-				
-			} // end else branch
-        }
-		else {
-			return null;
-		}
-    } // end of recursiveDepthFirst
+				if (s.isMax()) alpha = Math.max(alpha, aphaBetaPruning(leaf, a, b, d-1));
+				else beta = Math.min(beta, aphaBetaPruning(leaf, a, b, d-1));
+			}
+			if (s.isMax()) return alpha;
+			else return beta;
+		} 					
+    } 
 	
 	@Override
 	public void report() {
-        System.out.println("Length of path to state when search finished: "+this.path.size());
-		System.out.println("Number of visited when search finished: "+this.visited.size());
-    } // end of report()
-	
-} // end of class DepthFirst
+		System.out.println("Length of path to state when search finished: "+path.size());
+		System.out.println("Number of visited when search finished: "+visited);
+	}
+} 

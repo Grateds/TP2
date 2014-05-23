@@ -21,6 +21,7 @@ public class Controller {
 	public void startGame() {
 		// TODO Complete this method with adversary
 		// Sample test
+		System.out.println(this.board.toString());
 		int[][] t = {
 				{128, 0, 8, 0},
 				{0, 4, 16, 16},
