@@ -130,7 +130,7 @@ public class AdversaryState implements AdversarySearchState {
 	 * @return
 	 */
 	public Board getBoard(){
-		return this.board;
+		return this.board.clone();
 	}
 
 	/**
@@ -150,16 +150,5 @@ public class AdversaryState implements AdversarySearchState {
 			}	
 		}
 		return val + contZero;
-	}
-	
-	/**
-	 * 
-	 * @param x
-	 * @param y
-	 * @return
-	 */
-	public boolean isZero(int x, int y) {
-		if (x > -1  && x < 4 && y > 0 && y < 4) return this.board.get(x, y) == 0;
-		else return false;
 	}
 }
