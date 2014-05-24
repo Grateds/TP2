@@ -155,7 +155,7 @@ public class Board extends Observable {
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
 		sucBoard.set(pasaArregloAMatrizUp(col0, col1, col2, col3));
-		;
+
 		return sucBoard;
 	}
 
@@ -173,7 +173,7 @@ public class Board extends Observable {
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
 		sucBoard.set(pasaArregloAMatrizBelow(col0, col1, col2, col3));
-		;
+		
 		return sucBoard;
 	}
 
@@ -209,9 +209,14 @@ public class Board extends Observable {
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
 		sucBoard.set(pasaArregloAMatrizLeft(row0, row1, row2, row3));
+		
 		return sucBoard;
 	}
 
+	/**
+	 * 
+	 * @param c
+	 */
 	private void subValidMotion(int[] c) {
 		int i = 0;
 		int j = 1;
@@ -243,6 +248,14 @@ public class Board extends Observable {
 		}
 	}
 
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 * @return
+	 */
 	private int[][] pasaArregloAMatrizUp(int[] c0, int[] c1, int[] c2, int[] c3) {
 		int[][] res = new int[4][4];
 		for (int k = 0; k < 4; k++) {
@@ -260,6 +273,14 @@ public class Board extends Observable {
 		return res;
 	}
 
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 * @return
+	 */
 	private int[][] pasaArregloAMatrizBelow(int[] c0, int[] c1, int[] c2,
 			int[] c3) {
 		int[][] res = new int[4][4];
@@ -297,6 +318,14 @@ public class Board extends Observable {
 		return res;
 	}
 
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 * @return
+	 */
 	private int[][] pasaArregloAMatrizRight(int[] c0, int[] c1, int[] c2,
 			int[] c3) {
 		int[][] res = new int[4][4];
@@ -338,6 +367,14 @@ public class Board extends Observable {
 
 	}
 
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 * @return
+	 */
 	private int[][] pasaArregloAMatrizLeft(int[] c0, int[] c1, int[] c2,
 			int[] c3) {
 		int[][] res = new int[4][4];
@@ -356,6 +393,13 @@ public class Board extends Observable {
 		return res;
 	}
 
+	/**
+	 * 
+	 * @param c0
+	 * @param c1
+	 * @param c2
+	 * @param c3
+	 */
 	private void motion(int[] c0, int[] c1, int[] c2, int[] c3) {
 		subValidMotion(c0);
 		subValidMotion(c1);
