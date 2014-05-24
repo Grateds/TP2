@@ -12,7 +12,7 @@ import java.util.Observable;
  * @version 0.1
  */
 
-public class Board extends Observable {
+public class Board {
 
 	private final int N = 4;
 	private int[][] board;
@@ -32,10 +32,11 @@ public class Board extends Observable {
 		int y = (int) (Math.random() * (3  + 1));
 		int r = (int) (Math.random() * 2);
 		this.set(x, y, r==0 ? 2 : 4);
+		
+		r = (int) (Math.random() * 2);
 		while (this.get(x, y) != 0) {
 			x = (int) (Math.random() * (3  + 1));
 			y = (int) (Math.random() * (3  + 1));
-			r = (int) (Math.random() * 2);
 		}
 		this.set(x, y, r==0 ? 2 : 4);
 	}
@@ -68,8 +69,6 @@ public class Board extends Observable {
 		if (x < 0 || y < 0 || x > 3 || y > 3)	throw new IllegalArgumentException("The position must be on range");
 		if (value < 0) throw new IllegalArgumentException("The value must be positive");
 		this.board[x][y] = value;
-		this.setChanged();
-		this.notifyObservers();
 	}
 
 	/**
@@ -79,8 +78,6 @@ public class Board extends Observable {
 	 */
 	public void set(int[][] t) {
 		this.board = t.clone();
-		this.setChanged();
-		this.notifyObservers();
 	}
 
 	/**
@@ -107,9 +104,8 @@ public class Board extends Observable {
 	public String toString() {
 		String s = "";
 		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
+			for (int j = 0; j < N; j++) 
 				s = s + this.board[i][j] + " ";
-			}
 			s = s + "\n";
 		}
 		return s;
@@ -120,8 +116,6 @@ public class Board extends Observable {
 	 */
 	public void reset() {
 		this.board = new int[4][4];
-		this.setChanged();
-		this.notifyObservers();
 	}
 
 	/**
@@ -155,7 +149,7 @@ public class Board extends Observable {
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
 		sucBoard.set(pasaArregloAMatrizUp(col0, col1, col2, col3));
-
+		
 		return sucBoard;
 	}
 
@@ -209,12 +203,11 @@ public class Board extends Observable {
 		Board sucBoard = new Board();
 		sucBoard.board = this.board.clone();
 		sucBoard.set(pasaArregloAMatrizLeft(row0, row1, row2, row3));
-		
 		return sucBoard;
 	}
 
 	/**
-	 * 
+	 * TODO Complete this doc
 	 * @param c
 	 */
 	private void subValidMotion(int[] c) {
@@ -247,9 +240,9 @@ public class Board extends Observable {
 			}
 		}
 	}
-
+	
 	/**
-	 * 
+	 * TODO Complete this doc
 	 * @param c0
 	 * @param c1
 	 * @param c2
@@ -258,31 +251,26 @@ public class Board extends Observable {
 	 */
 	private int[][] pasaArregloAMatrizUp(int[] c0, int[] c1, int[] c2, int[] c3) {
 		int[][] res = new int[4][4];
-		for (int k = 0; k < 4; k++) {
+		for (int k = 0; k < 4; k++) 
 			res[k][0] = c0[k];
-		}
-		for (int k = 0; k < 4; k++) {
+		for (int k = 0; k < 4; k++) 
 			res[k][1] = c1[k];
-		}
-		for (int k = 0; k < 4; k++) {
+		for (int k = 0; k < 4; k++) 
 			res[k][2] = c2[k];
-		}
-		for (int k = 0; k < 4; k++) {
+		for (int k = 0; k < 4; k++) 
 			res[k][3] = c3[k];
-		}
 		return res;
 	}
 
 	/**
-	 * 
+	 * TODO Complete this doc
 	 * @param c0
 	 * @param c1
 	 * @param c2
 	 * @param c3
 	 * @return
 	 */
-	private int[][] pasaArregloAMatrizBelow(int[] c0, int[] c1, int[] c2,
-			int[] c3) {
+	private int[][] pasaArregloAMatrizBelow(int[] c0, int[] c1, int[] c2, int[] c3) {
 		int[][] res = new int[4][4];
 		int m = 0;
 		int k1 = 3;
@@ -301,16 +289,13 @@ public class Board extends Observable {
 		int o = 0;
 		int k3 = 3;
 		while (o < 4) {
-
 			res[k3][2] = c2[o];
-
 			k3--;
 			o++;
 		}
 		int p = 0;
 		int k4 = 3;
 		while (p < 4) {
-
 			res[k4][3] = c3[p];
 			k4--;
 			p++;
@@ -319,46 +304,39 @@ public class Board extends Observable {
 	}
 
 	/**
-	 * 
+	 * TODO Complete this doc
 	 * @param c0
 	 * @param c1
 	 * @param c2
 	 * @param c3
 	 * @return
 	 */
-	private int[][] pasaArregloAMatrizRight(int[] c0, int[] c1, int[] c2,
-			int[] c3) {
+	private int[][] pasaArregloAMatrizRight(int[] c0, int[] c1, int[] c2, int[] c3) {
 		int[][] res = new int[4][4];
 		int m = 0;
 		int k1 = 3;
 		while (m < 4) {
 			res[0][k1] = c0[m];
-
 			k1--;
 			m++;
 		}
 		int n = 0;
 		int k2 = 3;
 		while (n < 4) {
-
 			res[1][k2] = c1[n];
-
 			k2--;
 			n++;
 		}
 		int o = 0;
 		int k3 = 3;
 		while (o < 4) {
-
 			res[2][k3] = c2[o];
-
 			k3--;
 			o++;
 		}
 		int p = 0;
 		int k4 = 3;
 		while (p < 4) {
-
 			res[3][k4] = c3[p];
 			k4--;
 			p++;
@@ -368,33 +346,28 @@ public class Board extends Observable {
 	}
 
 	/**
-	 * 
+	 * TODO Complete this doc
 	 * @param c0
 	 * @param c1
 	 * @param c2
 	 * @param c3
 	 * @return
 	 */
-	private int[][] pasaArregloAMatrizLeft(int[] c0, int[] c1, int[] c2,
-			int[] c3) {
+	private int[][] pasaArregloAMatrizLeft(int[] c0, int[] c1, int[] c2,	int[] c3) {
 		int[][] res = new int[4][4];
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 4; i++) 
 			res[0][i] = c0[i];
-		}
-		for (int j = 0; j < 4; j++) {
+		for (int j = 0; j < 4; j++) 
 			res[1][j] = c1[j];
-		}
-		for (int k = 0; k < 4; k++) {
+		for (int k = 0; k < 4; k++) 
 			res[2][k] = c2[k];
-		}
-		for (int m = 0; m < 4; m++) {
+		for (int m = 0; m < 4; m++) 
 			res[3][m] = c3[m];
-		}
 		return res;
 	}
 
 	/**
-	 * 
+	 * TODO Complete this doc
 	 * @param c0
 	 * @param c1
 	 * @param c2
@@ -406,7 +379,7 @@ public class Board extends Observable {
 		subValidMotion(c2);
 		subValidMotion(c3);
 	}
-	
+
 	/**
 	 * Puts a random number(2 o 4) in an empty space on the board
 	 */
@@ -415,5 +388,4 @@ public class Board extends Observable {
 		int y = (int) (Math.random() * (3  + 1));
 		
 	}
-	
 }
