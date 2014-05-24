@@ -33,6 +33,12 @@ public class AdversaryStateTest {
 		{0, 0, 0, 0},
 		{0, 0, 0, 0}};
 
+	private static final int[][] table5 = {
+		{0, 0, 4, 4},
+		{0, 0, 2, 32},
+		{0, 2, 4, 128},
+		{0, 0, 0, 16}};
+	
 	@Test
 	public void testIsMax() {
 		fail("Not yet implemented");
@@ -137,6 +143,24 @@ public class AdversaryStateTest {
 		AdversaryState g = new AdversaryState(b);
 		
 		assertTrue(g.sucessMoveLeft());
+	}
+	
+	@Test
+	public void testAssessment() {
+		Board b = new Board();
+		b.set(table5);
+		AdversaryState g = new AdversaryState(b);
+		
+		assertEquals(136, g.assessment(b));
+	}
+	
+	@Test
+	public void testAssessmentComplex() {
+		Board b = new Board();
+		b.set(table1);
+		AdversaryState g = new AdversaryState(b);
+		
+		assertEquals(1030, g.assessment(b));
 	}
 	
 	// For run this tests, remove comments and change the access

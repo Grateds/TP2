@@ -123,7 +123,7 @@ public class AdversaryState implements AdversarySearchState {
 	 * @return
 	 */
 	public int getValoration(){
-		return this.val(this.board);
+		return this.assessment(this.board);
 	}
 	
 	/**
@@ -151,7 +151,7 @@ public class AdversaryState implements AdversarySearchState {
 		}
 		return count + countSub(this.board.get(i, j)/2);
 	}
-	
+
 	/**
 	 * 
 	 * @param n
@@ -197,4 +197,24 @@ public class AdversaryState implements AdversarySearchState {
 		}
 		return temp;
 	}
+
+	/**
+	 * 
+	 * @param b
+	 * @return val + contZero
+	 */
+	public int assessment(Board b) {
+		int contZero = 0;
+		int val = Integer.MIN_VALUE;
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				if(this.board.get(i, j)==0){contZero++;}
+				if(val < this.board.get(i, j)){
+					val = this.board.get(i, j);
+				}
+			}	
+		}
+		return val + contZero;
+	}
+	
 }
