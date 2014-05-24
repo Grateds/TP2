@@ -1,8 +1,6 @@
 package com.Grateds.game.AI;
 
-import java.util.LinkedList;
 import java.util.List;
-
 import AI.AdversarySearchEngine;
 import AI.AdversarySearchProblem;
 import AI.AdversarySearchState;
