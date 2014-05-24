@@ -1,7 +1,5 @@
 package com.Grateds.game.MODEL;
 
-import java.util.Observable;
-
 /**
  * Title: Board
  * Description: class describing the sboard for the 2048 game Problem.
@@ -77,7 +75,10 @@ public class Board {
 	 * 		is the matrix to clone.
 	 */
 	public void set(int[][] t) {
-		this.board = t.clone();
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) 
+				this.set(i, j, t[i][j]);
+		}
 	}
 
 	/**
@@ -134,7 +135,19 @@ public class Board {
 		}
 		return val;
 	}
-
+	
+	/**
+	 * 
+	 */
+	public Board clone() {
+		Board temp = new Board();
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) 
+				temp.set(i, j, this.board[i][j]);
+		}
+		return temp;
+	}
+	
 	/**
 	 * Moves the data from down to up by combining consecutive equal elements.
 	 * @return a resulting board after an "Up move".
@@ -381,11 +394,17 @@ public class Board {
 	}
 
 	/**
-	 * Puts a random number(2 o 4) in an empty space on the board
+	 * Puts a random number(2 or 4) in an empty space on the board.
 	 */
 	public void randomBoard(){
 		int x = (int) (Math.random() * (3  + 1));
 		int y = (int) (Math.random() * (3  + 1));
+		int r = (int) (Math.random() * 2);
 		
+		while (this.get(x, y) != 0) {
+			x = (int) (Math.random() * (3  + 1));
+			y = (int) (Math.random() * (3  + 1));
+		}
+		this.set(x, y, r==0 ? 2 : 4);
 	}
 }
