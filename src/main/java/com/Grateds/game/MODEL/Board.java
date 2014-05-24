@@ -407,4 +407,13 @@ public class Board extends Observable {
 		subValidMotion(c3);
 	}
 	
+	/**
+	 * Puts a random number in an empty space on the board
+	 */
+	public void randomBoard(){
+		int x = (int) (Math.random() * (3  + 1));
+		int y = (int) (Math.random() * (3  + 1));
+		
+	}
+	
 }

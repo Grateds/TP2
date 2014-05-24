@@ -132,6 +132,25 @@ public class AdversaryState implements AdversarySearchState {
 	public Board getBoard(){
 		return this.board;
 	}
+
+	/**
+	 * Basically the higher value the high amount of free rooms
+	 * @param b
+	 * @return val + contZero
+	 */
+	public int assessment(Board b) {
+		int contZero = 0;
+		int val = Integer.MIN_VALUE;
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				if(this.board.get(i, j)==0){contZero++;}
+				if(val < this.board.get(i, j)){
+					val = this.board.get(i, j);
+				}
+			}	
+		}
+		return val + contZero;
+	}
 	
 	/**
 	 * 
@@ -195,25 +214,6 @@ public class AdversaryState implements AdversarySearchState {
 			}
 		}
 		return temp;
-	}
-
-	/**
-	 * Basically the higher value the high amount of free rooms
-	 * @param b
-	 * @return val + contZero
-	 */
-	public int assessment(Board b) {
-		int contZero = 0;
-		int val = Integer.MIN_VALUE;
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				if(this.board.get(i, j)==0){contZero++;}
-				if(val < this.board.get(i, j)){
-					val = this.board.get(i, j);
-				}
-			}	
-		}
-		return val + contZero;
 	}
 	
 }
