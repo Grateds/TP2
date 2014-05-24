@@ -87,7 +87,6 @@ public class AdversaryState implements AdversarySearchState {
 			valid = true;
 		}
 		return valid;
-
 	}
 
 	/**

@@ -68,8 +68,7 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 			for (int j = 0; j < 4; j++) {
 				if (state.isZero(i, j)){
 					cont++;
-				}
-					
+				}	
 			}
 		}
 		if (cont > 0){zero = true;}
