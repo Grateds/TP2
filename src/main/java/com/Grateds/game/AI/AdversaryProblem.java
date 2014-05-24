@@ -36,10 +36,22 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 		    AdversaryState gLeft = (AdversaryState) state; gLeft.setMin();
 		    AdversaryState gRight = (AdversaryState) state; gRight.setMin();
 		
-		    if (gUp.sucessMoveUp()) successors.add(gUp); 
-		    if (gBelow.sucessMoveBellow()) successors.add(gBelow);
-		    if (gLeft.sucessMoveLeft()) successors.add(gLeft);
-		    if (gRight.sucessMoveRight()) successors.add(gRight);      
+		    if (gUp.sucessMoveUp()) {
+		    	gUp.setMin();
+		    	successors.add(gUp); 
+		    }
+		    if (gBelow.sucessMoveBellow()) {
+		    	gBelow.setMin();
+		    	successors.add(gBelow);
+		    }
+		    if (gLeft.sucessMoveLeft()) {
+		    	gLeft.setMin();
+		    	successors.add(gLeft);
+		    }
+		    if (gRight.sucessMoveRight()) {
+		    	gRight.setMin();
+		    	successors.add(gRight);      
+		    }
         }else{
         	int n = 2;
         	while (n < 5) {
@@ -62,17 +74,7 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 
 	@Override
 	public boolean end(AdversaryState state) {
-		int cont = 0;
-		boolean zero = false;
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				if (state.isZero(i, j)){
-					cont++;
-				}	
-			}
-		}
-		if (cont > 0){zero = true;}
-		return !zero && !state.sucessMoveBellow() && !state.sucessMoveLeft() && !state.sucessMoveRight() && !state.sucessMoveUp();
+		return this.getSuccessors(state).size() == 0;
 	}
 
 	@Override
