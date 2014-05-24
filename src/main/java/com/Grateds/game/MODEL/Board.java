@@ -408,7 +408,7 @@ public class Board extends Observable {
 	}
 	
 	/**
-	 * Puts a random number in an empty space on the board
+	 * Puts a random number(2 o 4) in an empty space on the board
 	 */
 	public void randomBoard(){
 		int x = (int) (Math.random() * (3  + 1));
