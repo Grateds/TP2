@@ -199,7 +199,7 @@ public class AdversaryState implements AdversarySearchState {
 	}
 
 	/**
-	 * 
+	 * Basically the higher value the high amount of free rooms
 	 * @param b
 	 * @return val + contZero
 	 */
