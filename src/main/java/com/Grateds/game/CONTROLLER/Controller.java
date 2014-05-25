@@ -1,7 +1,9 @@
 package com.Grateds.game.CONTROLLER;
 
+import java.util.Scanner;
 import com.Grateds.game.AI.AdversaryProblem;
 import com.Grateds.game.AI.AdversaryState;
+import com.Grateds.game.AI.MinMaxAlphaBetaPruningEngine;
 import com.Grateds.game.MODEL.Board;
 
 public class Controller {
@@ -34,11 +36,31 @@ public class Controller {
 	 * TODO Complete this doc
 	 */
 	public void startGame() {
-		// TODO Complete this method with adversary
 		this.board.initialization();
-		AdversaryState initial = new AdversaryState(this.board);
-		AdversaryProblem p = new AdversaryProblem(initial);
-		
+		AdversaryState s = new AdversaryState(this.board);
+		AdversaryProblem p = new AdversaryProblem(s);
+		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,4);
+	
 		System.out.println(this.board.toString());
+		while ( !p.end(s)) {
+			this.setRandomValue();
+			pause();
+			s = engine.computeSuccessor(s);
+			System.out.println(this.board.toString());
+		}
 	}
+	
+	/**
+	 * Set a random value (2 or 4) in the board in a random unoccupied position.
+	 */
+	private void setRandomValue() {
+		this.board.randomBoard();
+	}
+	
+	@SuppressWarnings("resource")
+	private void pause(){
+		System.out.println("Press enter to continue...");
+		Scanner keyboard = new Scanner(System.in);
+		keyboard.nextLine();
+		}
 }
