@@ -159,8 +159,7 @@ public class Board {
 		int[] col3 = { this.board[0][3], this.board[1][3], this.board[2][3], this.board[3][3] };
 
 		motion(col0, col1, col2, col3);
-		Board sucBoard = new Board();
-		sucBoard.board = this.board.clone();
+		Board sucBoard = this.clone();
 		sucBoard.set(pasaArregloAMatrizUp(col0, col1, col2, col3));
 		
 		return sucBoard;
@@ -177,8 +176,7 @@ public class Board {
 		int[] col3 = { this.board[3][3], this.board[2][3], this.board[1][3], this.board[0][3] };
 
 		motion(col0, col1, col2, col3);
-		Board sucBoard = new Board();
-		sucBoard.board = this.board.clone();
+		Board sucBoard = this.clone();
 		sucBoard.set(pasaArregloAMatrizBelow(col0, col1, col2, col3));
 		
 		return sucBoard;
@@ -195,8 +193,7 @@ public class Board {
 		int[] row3 = { this.board[3][3], this.board[3][2], this.board[3][1], this.board[3][0] };
 
 		motion(row0, row1, row2, row3);
-		Board sucBoard = new Board();
-		sucBoard.board = this.board.clone();
+		Board sucBoard = this.clone();
 		sucBoard.set(pasaArregloAMatrizRight(row0, row1, row2, row3));
 		
 		return sucBoard;
@@ -213,8 +210,7 @@ public class Board {
 		int[] row3 = { this.board[3][0], this.board[3][1], this.board[3][2], this.board[3][3] };
 
 		motion(row0, row1, row2, row3);
-		Board sucBoard = new Board();
-		sucBoard.board = this.board.clone();
+		Board sucBoard = this.clone();
 		sucBoard.set(pasaArregloAMatrizLeft(row0, row1, row2, row3));
 		return sucBoard;
 	}
