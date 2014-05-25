@@ -1,7 +1,6 @@
 package com.Grateds.game.CONTROLLER;
 
 import java.util.Scanner;
-
 import com.Grateds.game.AI.AdversaryProblem;
 import com.Grateds.game.AI.AdversaryState;
 import com.Grateds.game.AI.MinMaxAlphaBetaPruningEngine;
@@ -42,11 +41,11 @@ public class Controller {
 		AdversaryProblem p = new AdversaryProblem(s);
 		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,4);
 	
-		System.out.println("Game began..\n\n"+this.board.toString());
+		System.out.println("Game began..\n\n"+s.toString());
 		while ( !p.end(s)) {
 			s = engine.computeSuccessor(s);
 			pause();
-			System.out.println(this.board.toString());
+			System.out.println(s.toString());
 			this.setRandomValue();
 		}
 	}
