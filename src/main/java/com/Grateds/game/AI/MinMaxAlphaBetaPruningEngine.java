@@ -12,9 +12,7 @@ import AI.AdversarySearchState;
 		         AbstractSearchProblem.<p>
  * Copyright:    Copyright (c) Grateds 2014<p>
  * Company:      Grateds <p	
-    private List<S> visited; // used to store the visited states
-    private List<S> path; // used to store the path to the success.>
- * @author Grateds
+ * @author      Grateds
  * @version 0.1
  */
 public class MinMaxAlphaBetaPruningEngine<P extends AdversarySearchProblem<S>, S extends AdversarySearchState> extends AdversarySearchEngine<P,S>{
