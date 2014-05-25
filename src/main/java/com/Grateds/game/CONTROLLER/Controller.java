@@ -44,10 +44,10 @@ public class Controller {
 	
 		System.out.println("Game began..\n\n"+this.board.toString());
 		while ( !p.end(s)) {
-			this.setRandomValue();
-			pause();
 			s = engine.computeSuccessor(s);
+			pause();
 			System.out.println(this.board.toString());
+			this.setRandomValue();
 		}
 	}
 	

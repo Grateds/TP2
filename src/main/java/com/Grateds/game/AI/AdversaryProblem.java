@@ -78,7 +78,6 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 
 	@Override
 	public boolean end(AdversaryState state) {
-		System.out.println("Successors size = "+this.getSuccessors(state).size());
 		return this.getSuccessors(state).size() == 0 || state.isSucess();
 	}
 
