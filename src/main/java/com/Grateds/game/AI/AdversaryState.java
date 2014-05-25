@@ -7,7 +7,12 @@ public class AdversaryState implements AdversarySearchState {
 	
 	private Board board; // game board 
 	private boolean isMax;
-
+	private int directionToMove; // represents the different move directions:
+								  // Up = 0
+	                              // Down = 1
+	                              // Left = 2
+	                              // Right = 3
+	
 	/**
 	 * Default constructor for AdversaryStates class.
 	 */
@@ -54,11 +59,45 @@ public class AdversaryState implements AdversarySearchState {
 	public boolean isSucess() {
 		return this.board.contains(2048);
 	}
-
+	
+	/**
+	 * Change the current board for another.
+	 * @param b
+	 * 		is the board to clone.
+	 */
+	public void changeCurrentBoard(Board b) {
+		this.board = b.clone();
+	}
+	
+	/**
+	 * Set a direction to move all elements in the board.
+	 * @param dir
+	 * 		is only one of the possible directions
+	 * 		0 -> Up
+	 * 		1 -> Down
+	 * 		2 -> Left
+	 * 		3 -> Right
+	 */
+	public void setDirection(int dir) {
+		this.directionToMove = dir;
+	}
+	
 	@Override
 	public Object ruleApplied() {
-		// TODO Auto-generated method stub
-		return null;
+		switch (directionToMove) {
+		case 0:
+			this.changeCurrentBoard(this.board.movingUp());
+			return this;
+	    case 1:
+	    	this.changeCurrentBoard(this.board.movingBelow());
+	    	return this;
+	    case 2:
+	    	this.changeCurrentBoard(this.board.movingLeft());
+	    	return this;
+	    default:
+	    	this.changeCurrentBoard(this.board.movingRight());
+	        return this;
+		}
 	}
     
     /**
