@@ -30,29 +30,29 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 	@Override
 	public List<AdversaryState> getSuccessors(AdversaryState state) {
         List<AdversaryState> successors = new LinkedList<AdversaryState>(); // list for storing the successors of s		
-        if (!state.isMax()) {
+        if (state.isMax()) {
             AdversaryState gUp = state.clone(); 
 		    AdversaryState gBelow = state.clone(); 
 		    AdversaryState gLeft = state.clone(); 
 		    AdversaryState gRight = state.clone(); 
 		
 		    if (gUp.sucessMoveUp()) {
-		    	gUp.setMax();
+		    	gUp.setMin();
 		    	gUp.setDirection(0);
 		    	successors.add((AdversaryState) gUp.ruleApplied()); 
 		    }
 		    if (gBelow.sucessMoveBellow()) {
-		    	gBelow.setMax();
+		    	gBelow.setMin();
 		    	gBelow.setDirection(1);
 		    	successors.add((AdversaryState) gBelow.ruleApplied());
 		    }
 		    if (gLeft.sucessMoveLeft()) {
-		    	gLeft.setMax();
+		    	gLeft.setMin();
 		    	gLeft.setDirection(2);
 		    	successors.add((AdversaryState) gLeft.ruleApplied());
 		    }
 		    if (gRight.sucessMoveRight()) {
-		    	gRight.setMax();
+		    	gRight.setMin();
 		    	gRight.setDirection(3);
 		    	successors.add((AdversaryState) gRight.ruleApplied());      
 		    }
@@ -65,7 +65,7 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 						if (temp.get(i, j) == 0) {
 							temp.set(i, j, n);
 							AdversaryState stateAux = new AdversaryState(temp);
-							stateAux.setMin();
+							stateAux.setMax();
 							successors.add(stateAux);
 						}
 					}

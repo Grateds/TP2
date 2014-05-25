@@ -41,11 +41,11 @@ public class Controller {
 		AdversaryProblem p = new AdversaryProblem(s);
 		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,4);
 	
-		System.out.println("Game began..\n\n"+s.toString());
+		System.out.println("Game began..\n\nIs max? "+s.isMax()+"\n"+s.toString());
 		while ( !p.end(s)) {
 			s = engine.computeSuccessor(s);
 			pause();
-			System.out.println(s.toString());
+			System.out.println("Is max? "+s.isMax()+"\n"+s.toString());
 			this.setRandomValue();
 		}
 	}
