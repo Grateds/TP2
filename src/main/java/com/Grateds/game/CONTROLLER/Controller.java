@@ -42,7 +42,7 @@ public class Controller {
 		AdversaryProblem p = new AdversaryProblem(s);
 		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,4);
 	
-		System.out.println(this.board.toString());
+		System.out.println("Game began..\n\n"+this.board.toString());
 		while ( !p.end(s)) {
 			this.setRandomValue();
 			pause();
@@ -63,5 +63,5 @@ public class Controller {
 		System.out.println("Press enter to continue...");
 		Scanner keyboard = new Scanner(System.in);
 		keyboard.nextLine();
-		}
+	}
 }

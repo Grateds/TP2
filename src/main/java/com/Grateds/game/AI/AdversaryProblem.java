@@ -31,28 +31,28 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 	public List<AdversaryState> getSuccessors(AdversaryState state) {
         List<AdversaryState> successors = new LinkedList<AdversaryState>(); // list for storing the successors of s		
         if (!state.isMax()) {
-            AdversaryState gUp = (AdversaryState) state; gUp.setMin();
-		    AdversaryState gBelow = (AdversaryState) state; gBelow.setMin();
-		    AdversaryState gLeft = (AdversaryState) state; gLeft.setMin();
-		    AdversaryState gRight = (AdversaryState) state; gRight.setMin();
+            AdversaryState gUp = state.clone(); 
+		    AdversaryState gBelow = state.clone(); 
+		    AdversaryState gLeft = state.clone(); 
+		    AdversaryState gRight = state.clone(); 
 		
 		    if (gUp.sucessMoveUp()) {
-		    	gUp.setMin();
+		    	gUp.setMax();
 		    	gUp.setDirection(0);
 		    	successors.add((AdversaryState) gUp.ruleApplied()); 
 		    }
 		    if (gBelow.sucessMoveBellow()) {
-		    	gBelow.setMin();
+		    	gBelow.setMax();
 		    	gBelow.setDirection(1);
 		    	successors.add((AdversaryState) gBelow.ruleApplied());
 		    }
 		    if (gLeft.sucessMoveLeft()) {
-		    	gLeft.setMin();
+		    	gLeft.setMax();
 		    	gLeft.setDirection(2);
 		    	successors.add((AdversaryState) gLeft.ruleApplied());
 		    }
 		    if (gRight.sucessMoveRight()) {
-		    	gRight.setMin();
+		    	gRight.setMax();
 		    	gRight.setDirection(3);
 		    	successors.add((AdversaryState) gRight.ruleApplied());      
 		    }
@@ -65,7 +65,7 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 						if (temp.get(i, j) == 0) {
 							temp.set(i, j, n);
 							AdversaryState stateAux = new AdversaryState(temp);
-							stateAux.setMax();
+							stateAux.setMin();
 							successors.add(stateAux);
 						}
 					}
@@ -78,6 +78,7 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 
 	@Override
 	public boolean end(AdversaryState state) {
+		System.out.println("Successors size = "+this.getSuccessors(state).size());
 		return this.getSuccessors(state).size() == 0 || state.isSucess();
 	}
 

@@ -3,13 +3,11 @@ package com.Grateds.game;
 import com.Grateds.game.CONTROLLER.Controller;
 
 /**
- * Hello world!
- *
+ * Main class for 2048 game.
  */
 public class App {
 	
     public static void main( String[] args ) {
-    	System.out.println( "Hello World!" );
     	Controller controller = new Controller();
         controller.startGame();
     }
