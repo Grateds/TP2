@@ -1,6 +1,7 @@
 package com.Grateds.game.CONTROLLER;
 
 import java.util.Scanner;
+
 import com.Grateds.game.AI.AdversaryProblem;
 import com.Grateds.game.AI.AdversaryState;
 import com.Grateds.game.AI.MinMaxAlphaBetaPruningEngine;
@@ -11,7 +12,7 @@ public class Controller {
 	private Board board;
 	
 	/**
-	 * TODO Complete this doc
+	 * Default constructor. Creates a new board to play.
 	 */
 	public Controller() {
 		this.board = new Board();
