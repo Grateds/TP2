@@ -186,7 +186,14 @@ public class AdversaryState implements AdversarySearchState {
 	public Board getBoard(){
 		return this.board.clone();
 	}
-
+	
+	/**
+	 * Set a random value (2 or 4) in the board in a random unoccupied position.
+	 */
+	public void setRandomValue() {
+		this.board.randomBoard();
+	}
+	
 	/**
 	 * Basically the higher value the high amount of free rooms
 	 * @param b

@@ -44,6 +44,26 @@ public class BoardTest {
 	    Board res = b.movingUp();
 	    assertEquals(expected.toString(),res.toString());  
 	}
+	
+	@Test
+	public void testMovingUpDifficult() {
+		Board b = new Board();
+		Board expected = new Board();	
+		int[][] table1 = {
+				{2, 0, 0, 0},
+				{0, 0, 0, 0},
+				{2, 4, 2, 0},
+				{4, 2, 4, 2}};
+		int[][] table2 = {
+				{4, 4, 2, 2},
+				{4, 2, 4, 0},
+				{0, 0, 0, 0},
+				{0, 0, 0, 0}}; 
+	    b.set(table1);
+	    expected.set(table2);
+	    Board res = b.movingUp();
+	    assertEquals(expected.toString(),res.toString());  
+	}
 
 	@Test
 	public void testMovingBelow() {
@@ -79,6 +99,26 @@ public class BoardTest {
 				{0, 0, 0, 0},
 				{0, 0, 2, 4},
 				{0, 0, 0, 4}};
+	    b.set(table1);
+	    expected.set(table2);
+	    Board res = b.movingRight();
+	    assertEquals(expected.toString(),res.toString()); 
+	}
+	
+	@Test
+	public void testMovingRightDifficult(){
+		Board b = new Board();
+		Board expected = new Board();	
+		int[][] table1 = {
+				{2, 2, 0, 2},
+				{4, 0, 0, 0},
+				{4, 0, 0, 4},
+				{0, 2, 0, 0}}; 
+	    int[][] table2 = {
+				{0, 0, 2, 4},
+				{0, 0, 0, 4},
+				{0, 0, 0, 8},
+				{0, 0, 0, 2}};
 	    b.set(table1);
 	    expected.set(table2);
 	    Board res = b.movingRight();
