@@ -44,17 +44,17 @@ public class Controller {
 		System.out.println("Game began..\n\nIs max? "+s.isMax()+"\n"+s.toString());
 		while ( !p.end(s)) {
 			s = engine.computeSuccessor(s);
+			this.setRandomValue(s);
 			pause();
 			System.out.println("Is max? "+s.isMax()+"\n"+s.toString());
-			this.setRandomValue();
 		}
 	}
 	
 	/**
 	 * Set a random value (2 or 4) in the board in a random unoccupied position.
 	 */
-	private void setRandomValue() {
-		this.board.randomBoard();
+	private void setRandomValue(AdversaryState state) {
+		state.setRandomValue();
 	}
 	
 	@SuppressWarnings("resource")
