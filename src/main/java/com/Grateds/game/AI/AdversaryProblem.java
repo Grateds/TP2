@@ -2,9 +2,7 @@ package com.Grateds.game.AI;
 
 import java.util.LinkedList;
 import java.util.List;
-
 import com.Grateds.game.MODEL.Board;
-
 import AI.AdversarySearchProblem;
 
 public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> {
@@ -30,7 +28,7 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 	@Override
 	public List<AdversaryState> getSuccessors(AdversaryState state) {
         List<AdversaryState> successors = new LinkedList<AdversaryState>(); // list for storing the successors of s		
-        if (state.isMax()) {
+        if (!state.isMax()) {
             AdversaryState gUp = (AdversaryState) state; gUp.setMin();
 		    AdversaryState gBelow = (AdversaryState) state; gBelow.setMin();
 		    AdversaryState gLeft = (AdversaryState) state; gLeft.setMin();
@@ -38,19 +36,23 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 		
 		    if (gUp.sucessMoveUp()) {
 		    	gUp.setMin();
-		    	successors.add(gUp); 
+		    	gUp.setDirection(0);
+		    	successors.add((AdversaryState) gUp.ruleApplied()); 
 		    }
 		    if (gBelow.sucessMoveBellow()) {
 		    	gBelow.setMin();
-		    	successors.add(gBelow);
+		    	gBelow.setDirection(1);
+		    	successors.add((AdversaryState) gBelow.ruleApplied());
 		    }
 		    if (gLeft.sucessMoveLeft()) {
 		    	gLeft.setMin();
-		    	successors.add(gLeft);
+		    	gLeft.setDirection(2);
+		    	successors.add((AdversaryState) gLeft.ruleApplied());
 		    }
 		    if (gRight.sucessMoveRight()) {
 		    	gRight.setMin();
-		    	successors.add(gRight);      
+		    	gRight.setDirection(3);
+		    	successors.add((AdversaryState) gRight.ruleApplied());      
 		    }
         }else{
         	int n = 2;
@@ -74,7 +76,7 @@ public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> 
 
 	@Override
 	public boolean end(AdversaryState state) {
-		return this.getSuccessors(state).size() == 0;
+		return this.getSuccessors(state).size() == 0 || state.isSucess();
 	}
 
 	@Override
