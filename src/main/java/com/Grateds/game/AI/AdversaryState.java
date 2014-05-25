@@ -31,11 +31,17 @@ public class AdversaryState implements AdversarySearchState {
 	public boolean isMax() {
 		return this.isMax;
 	}
-
+	
+	/**
+	 * Sets this state as a Max state.
+	 */
 	public void setMax() {
 		this.isMax = true;
 	}
 	
+	/**
+	 * Sets this state as a Min state.
+	 */
 	public void setMin() {
 		this.isMax = false;
 	}
@@ -67,6 +73,15 @@ public class AdversaryState implements AdversarySearchState {
 	 */
 	public void changeCurrentBoard(Board b) {
 		this.board = b.clone();
+	}
+	
+	/**
+	 * Returns a clone of this.
+	 * @return a clone of this.
+	 */
+	public AdversaryState clone() {
+		AdversaryState temp = new AdversaryState(this.board.clone());
+		return temp;
 	}
 	
 	/**
