@@ -1,0 +1,12 @@
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/lib/AbstractSearchProblem.java
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/MinMaxAlphaBetaPruningEngine.java
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/lib/AdversarySearchProblem.java
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/AdversaryState.java
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/lib/AbstractSearchEngine.java
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/lib/State.java
+/home/dario/TP2/src/main/java/com/Grateds/game/CONTROLLER/Controller.java
+/home/dario/TP2/src/main/java/com/Grateds/game/MODEL/Board.java
+/home/dario/TP2/src/main/java/com/Grateds/game/App.java
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/lib/AdversarySearchState.java
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/AdversaryProblem.java
+/home/dario/TP2/src/main/java/com/Grateds/game/AI/lib/AdversarySearchEngine.java

@@ -2,7 +2,7 @@ package com.Grateds.game.MODEL;
 
 /**
  * Title: Board
- * Description: class describing the sboard for the 2048 game Problem.
+ * Description: class describing the board for the 2048 game Problem.
  * Copyright: Copyright (c) Grateds 2014
  * Company: Grateds
  * 
@@ -17,13 +17,14 @@ public class Board {
 
 	/**
 	 * Default constructor.
+	 * Builds a new board of size NxN.
 	 */
 	public Board() {
 		this.board = new int[N][N];
 	}
 	
 	/**
-	 * 
+	 * Set two random values (2 or 4) each on the board in a random unoccupied position.
 	 */
 	public void initialization() {
 		int x = (int) (Math.random() * (3  + 1));
@@ -137,7 +138,8 @@ public class Board {
 	}
 	
 	/**
-	 * 
+	 * Returns a clone of this.
+	 * @return a clone of this.
 	 */
 	public Board clone() {
 		Board temp = new Board();
@@ -215,10 +217,6 @@ public class Board {
 		return sucBoard;
 	}
 
-	/**
-	 * TODO Complete this doc
-	 * @param c
-	 */
 	private void subValidMotion(int[] c) {
 		int i = 0;
 		int j = 1;
@@ -250,14 +248,6 @@ public class Board {
 		}
 	}
 	
-	/**
-	 * TODO Complete this doc
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 * @return
-	 */
 	private int[][] pasaArregloAMatrizUp(int[] c0, int[] c1, int[] c2, int[] c3) {
 		int[][] res = new int[4][4];
 		for (int k = 0; k < 4; k++) 
@@ -271,14 +261,6 @@ public class Board {
 		return res;
 	}
 
-	/**
-	 * TODO Complete this doc
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 * @return
-	 */
 	private int[][] pasaArregloAMatrizBelow(int[] c0, int[] c1, int[] c2, int[] c3) {
 		int[][] res = new int[4][4];
 		int m = 0;
@@ -312,14 +294,6 @@ public class Board {
 		return res;
 	}
 
-	/**
-	 * TODO Complete this doc
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 * @return
-	 */
 	private int[][] pasaArregloAMatrizRight(int[] c0, int[] c1, int[] c2, int[] c3) {
 		int[][] res = new int[4][4];
 		int m = 0;
@@ -354,14 +328,6 @@ public class Board {
 
 	}
 
-	/**
-	 * TODO Complete this doc
-	 * @param c0
-	 * @param c1
-	 * @param c2
-	 * @param c3
-	 * @return
-	 */
 	private int[][] pasaArregloAMatrizLeft(int[] c0, int[] c1, int[] c2,	int[] c3) {
 		int[][] res = new int[4][4];
 		for (int i = 0; i < 4; i++) 
@@ -376,7 +342,7 @@ public class Board {
 	}
 
 	/**
-	 * TODO Complete this doc
+	 * Executes subValidMotion for each column fo the board.
 	 * @param c0
 	 * @param c1
 	 * @param c2

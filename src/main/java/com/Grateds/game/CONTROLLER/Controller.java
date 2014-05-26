@@ -6,6 +6,15 @@ import com.Grateds.game.AI.AdversaryState;
 import com.Grateds.game.AI.MinMaxAlphaBetaPruningEngine;
 import com.Grateds.game.MODEL.Board;
 
+/**
+ * Title: AdversaryProblem
+ * Description: class describing the main controller for the 2048 game.
+ * Copyright: Copyright (c) Grateds 2014
+ * Company: Grateds
+ * 
+ * @author Grateds
+ * @version 0.1
+ */
 public class Controller {
 	
 	private Board board;
@@ -18,28 +27,20 @@ public class Controller {
 	}
 	
 	/**
-	 * TODO Complete this doc
-	 * @return
-	 */
-	public Board getBoard() {
-		return this.board;
-	}
-	
-	/**
-	 * TODO Complete this doc
+	 * Set two random values (2 or 4) each on the board in a random unoccupied position.
 	 */
 	public void initialization() {
-		this.board.reset();
+		this.board.initialization();
 	}
 	
 	/**
-	 * TODO Complete this doc
+	 * Start a new game.
 	 */
 	public void startGame() {
-		this.board.initialization();
+		this.initialization();
 		AdversaryState s = new AdversaryState(this.board);
 		AdversaryProblem p = new AdversaryProblem(s);
-		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,6);
+		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,5);
 	
 		System.out.println("Game began..\n\n"+s.toString());
 		while ( !p.end(s)) {
@@ -55,7 +56,7 @@ public class Controller {
 	}
 	
 	/**
-	 * Set a random value (2 or 4) in the board in a random unoccupied position.
+	 * Set a random value (2 or 4) on the board in a random unoccupied position.
 	 */
 	private void setRandomValue(AdversaryState state) {
 		state.setRandomValue();

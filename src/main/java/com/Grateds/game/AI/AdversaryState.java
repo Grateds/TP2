@@ -3,6 +3,15 @@ package com.Grateds.game.AI;
 import com.Grateds.game.AI.lib.AdversarySearchState;
 import com.Grateds.game.MODEL.Board;
 
+/**
+ * Title: AdversaryState
+ * Description: class describing the states for the 2048 game.
+ * Copyright: Copyright (c) Grateds 2014
+ * Company: Grateds
+ * 
+ * @author Grateds
+ * @version 0.1
+ */
 public class AdversaryState implements AdversarySearchState {
 	
 	private Board board; // game board 
@@ -21,6 +30,11 @@ public class AdversaryState implements AdversarySearchState {
         this.isMax = true;
 	}
 	
+	/**
+	 * Constructor for AdversaryState class.
+	 * @param b
+	 * 		is the board to clone on this.
+	 */
 	public AdversaryState(Board b) {
 		if (b == null)	throw new IllegalArgumentException("The board must not be null");
 		this.board = b;
@@ -133,8 +147,8 @@ public class AdversaryState implements AdversarySearchState {
 	}
     
     /**
-	 * TODO Complete this doc
-	 * @return
+	 * Return true iff a move UP is possible.
+	 * @return true iff a move UP is possible.
 	 */
 	public boolean sucessMoveUp() {
 		boolean valid = false;
@@ -147,8 +161,8 @@ public class AdversaryState implements AdversarySearchState {
 	}
 
 	/**
-	 * TODO Complete this doc
-	 * @return
+	 * Return true iff a move BELLOW is possible.
+	 * @return true iff a move BELLOW is possible.
 	 */
 	public boolean sucessMoveBellow() {
 		boolean valid = false;
@@ -161,8 +175,8 @@ public class AdversaryState implements AdversarySearchState {
 	}
 
 	/**
-	 * TODO Complete this doc
-	 * @return
+	 * Return true iff a move RIGHT is possible.
+	 * @return true iff a move RIGHT is possible.
 	 */
 	public boolean sucessMoveRight() {
 		boolean valid = false;
@@ -175,8 +189,8 @@ public class AdversaryState implements AdversarySearchState {
 	}
 	
 	/**
-	 * TODO Complete this doc
-	 * @return
+	 * Return true iff a move LEFT is possible.
+	 * @return true iff a move LEFT is possible.
 	 */
 	public boolean sucessMoveLeft() {
 		boolean valid = false;
@@ -189,7 +203,8 @@ public class AdversaryState implements AdversarySearchState {
 	}
 	
 	/**
-	 * 
+	 * * Return true iff a move UP is possible.
+	 * @return true iff a move UP is possible.
 	 * @return
 	 */
 	public int getValoration(){
@@ -229,14 +244,17 @@ public class AdversaryState implements AdversarySearchState {
 				}
 			}	
 		}
+		if (this.board.get(0, 0) == val || this.board.get(3, 0) == val ||this.board.get(0, 3) == val ||this.board.get(3, 3) == val) val += val; 
 		if (counter(codI,codJ)!=0){val += val;} 
-		return val + contZero;
+		return val + contZero + this.countNumberOfMerges(2) + this.countNumberOfMerges(4);
 	}
 	
 	/**
 	 * Given a position, count the number of valid moves that replicate
 	 * @param i
+	 * 		is the number of row
 	 * @param j
+	 * 		is the number of column
 	 * @return cont
 	 */
 	public int counter(int i, int j){
@@ -254,5 +272,35 @@ public class AdversaryState implements AdversarySearchState {
 			if (this.board.get(i, j) == this.board.get(p, q-1)) {cont++;}
 		}
 		return cont;
+	}
+	
+	/**
+	 * Counts the number of merges for n-tiles.
+	 * @return number of merges.
+	 */
+	public int countNumberOfMerges(int n){
+		int count = 0;
+		for (int i = 0; i < 4; i++) {
+			for (int j = 1; j < 3; j++) {
+				if (this.board.get(i, j) == n) {
+					if (this.board.get(i, j) == this.board.get(i, j + 1)) {
+						count++;
+						j++;
+					}
+				}
+			}
+		}
+	
+		for (int j = 0; j < 4; j++) {
+			for (int i = 1; i < 3; i++) {
+				if (this.board.get(i, j) == n) {
+					if (this.board.get(i, j) == this.board.get(i + 1, j)) {
+						count++;
+						i++;
+					}
+				}
+			}
+		}
+		return count;
 	}
 }

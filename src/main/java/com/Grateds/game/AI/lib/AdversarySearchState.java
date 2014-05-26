@@ -51,7 +51,6 @@ public interface AdversarySearchState {
 	 * @post. An object representing the rule applied, leading to the
 	 * current state, is returned. If the state is the initial state, 
 	 * then null is returned.
-	 * TODO Replace Object by a more specific class or interface.
 	 */
 	abstract Object ruleApplied();
 	

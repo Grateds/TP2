@@ -107,19 +107,6 @@ public class AdversaryProblemTest {
 	}
 
 	@Test
-	public void testValue() {
-//		Board b = new Board();
-//		b.set(table1);
-//		AdversaryState s = new AdversaryState(b);
-//		AdversaryProblem p = new AdversaryProblem();
-		
-//		int result = p.value(s);
-//		assertEquals(/*VALUE EXPECTED*/, result);
-		
-//		 TODO Implement this test
-	}
-
-	@Test
 	public void testMinStates() {
 		Board b = new Board();
 		b.set(table1);

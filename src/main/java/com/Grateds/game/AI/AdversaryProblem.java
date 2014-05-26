@@ -5,6 +5,15 @@ import java.util.List;
 import com.Grateds.game.AI.lib.AdversarySearchProblem;
 import com.Grateds.game.MODEL.Board;
 
+/**
+ * Title: AdversaryProblem
+ * Description: class describing the problem for the 2048 game.
+ * Copyright: Copyright (c) Grateds 2014
+ * Company: Grateds
+ * 
+ * @author Grateds
+ * @version 0.1
+ */
 
 public class AdversaryProblem implements AdversarySearchProblem<AdversaryState> {
 

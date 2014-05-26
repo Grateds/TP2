@@ -158,7 +158,7 @@ public class AdversaryStateTest {
 		b.set(table5);
 		AdversaryState g = new AdversaryState(b);
 		
-		assertEquals(136, g.assessment(b));
+		assertEquals(137, g.assessment(b));
 	}
 	
 	@Test
@@ -169,12 +169,6 @@ public class AdversaryStateTest {
 		
 		assertEquals(1030, g.assessment(b));
 	}
-
-	@Test
-	public void testValuation() {
-		// TODO implement this test
-		assertTrue(true);
-	}	
 	
 	@Test
 	public void testAdd() {
