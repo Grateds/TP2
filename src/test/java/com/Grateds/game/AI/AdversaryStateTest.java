@@ -38,11 +38,6 @@ public class AdversaryStateTest {
 		{0, 0, 2, 32},
 		{0, 2, 4, 128},
 		{0, 0, 0, 16}};
-	
-	@Test
-	public void testIsMax() {
-		fail("Not yet implemented");
-	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testConstructorWithNullArgs() {
