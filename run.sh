@@ -63,5 +63,4 @@ export CLASSPATH=$CLASSPATH:target/classes
 
 echo -e "${yellow}*****************************  EXECUTING PROGRAM  *****************************${end}"
 
-java -cp $CLASSPATH -Dactivejdbc.log com.Grateds.game.App
-
+java -cp $CLASSPATH com.Grateds.game.App

@@ -106,8 +106,8 @@ public class Board {
 		String s = "";
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < N; j++) 
-				s = s + this.board[i][j] + " ";
-			s = s + "\n";
+				s = s + this.board[i][j] + "    ";
+			s = s + "\n\n";
 		}
 		return s;
 	}

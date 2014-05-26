@@ -49,6 +49,8 @@ public class Controller {
 			pause();
 			System.out.println(s.toString());
 		}
+        if ( p.end(s) ) System.out.println("Game Over!");
+        else System.out.println("You Win!");
 	}
 	
 	/**
