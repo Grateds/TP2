@@ -195,7 +195,7 @@ public class AdversaryState implements AdversarySearchState {
 	}
 	
 	/**
-	 * Basically the higher value the high amount of free rooms
+	 * Basically, add the amount of free cells plus increases, whichever is more valid than doubled movements
 	 * @param b
 	 * @return val + contZero
 	 */
