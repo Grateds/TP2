@@ -1,9 +1,10 @@
 package com.Grateds.game.AI;
 
 import java.util.List;
-import AI.AdversarySearchEngine;
-import AI.AdversarySearchProblem;
-import AI.AdversarySearchState;
+import com.Grateds.game.AI.lib.AdversarySearchEngine;
+import com.Grateds.game.AI.lib.AdversarySearchProblem;
+import com.Grateds.game.AI.lib.AdversarySearchState;
+
 
 /**
  * Title:        MinMaxAlfaBetaEngine<p>
