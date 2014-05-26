@@ -40,7 +40,7 @@ public class Controller {
 		this.initialization();
 		AdversaryState s = new AdversaryState(this.board);
 		AdversaryProblem p = new AdversaryProblem(s);
-		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,5);
+		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,6);
 	
 		System.out.println("Game began..\n\n"+s.toString());
 		while ( !p.end(s)) {
