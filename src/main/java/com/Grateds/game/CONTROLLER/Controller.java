@@ -39,7 +39,7 @@ public class Controller {
 		this.board.initialization();
 		AdversaryState s = new AdversaryState(this.board);
 		AdversaryProblem p = new AdversaryProblem(s);
-		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,4);
+		MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState> engine = new MinMaxAlphaBetaPruningEngine<AdversaryProblem, AdversaryState>(p,6);
 	
 		System.out.println("Game began..\n\n"+s.toString());
 		while ( !p.end(s)) {
@@ -47,10 +47,11 @@ public class Controller {
 			s.setMax();
 			this.setRandomValue(s);
 			pause();
+			System.out.println(s.getMove());            
 			System.out.println(s.toString());
 		}
-        if ( p.end(s) ) System.out.println("Game Over!");
-        else System.out.println("You Win!");
+        if ( p.end(s) ) System.out.println("Game Over!\n");
+        else System.out.println("You Win!\n");
 	}
 	
 	/**
