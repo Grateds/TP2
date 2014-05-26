@@ -46,10 +46,10 @@ public class AdversaryStateTest {
 		{0, 0, 0, 0}};
 	
 	private static final int[][] table7 = {
-		{16, 0, 0, 16},
+		{4, 0, 2, 2},
 		{0, 16, 0, 0},
-		{0, 0, 16, 0},
-		{0, 16, 0, 0}};
+		{0, 16, 16, 0},
+		{0, 8, 16, 8}};
 	
 	@Test(expected = IllegalArgumentException.class)
 	public void testConstructorWithNullArgs() {
@@ -182,7 +182,7 @@ public class AdversaryStateTest {
 		b.set(table6);
 		AdversaryState g = new AdversaryState(b);
 		
-		assertEquals(1, g.add(2, 3));
+		assertEquals(1, g.counter(2, 3));
 	}
 
 	@Test
@@ -191,6 +191,6 @@ public class AdversaryStateTest {
 		b.set(table7);
 		AdversaryState g = new AdversaryState(b);
 		
-		assertEquals(0, g.add(2, 2));
+		assertEquals(2, g.counter(2, 2));
 	}
 }

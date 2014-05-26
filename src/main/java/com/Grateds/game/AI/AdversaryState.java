@@ -212,17 +212,17 @@ public class AdversaryState implements AdversarySearchState {
 				}
 			}	
 		}
-		if (add(codI,codJ)!=0){val += val;} //there is a movement to add
+		if (counter(codI,codJ)!=0){val += val;} //there is a movement to add
 		return val + contZero;
 	}
 	
 	/**
-	 * 
+	 * Given a position, count the number of valid moves that replicate
 	 * @param i
 	 * @param j
 	 * @return cont
 	 */
-	public int add(int i, int j){
+	public int counter(int i, int j){
 		int cont = 0; int p = i; int q = j;
 		if ((0 <= p+1) && (p+1 < 4)){
 			if (this.board.get(i, j) == this.board.get(p + 1, q)) {cont++;}
