@@ -39,6 +39,18 @@ public class AdversaryStateTest {
 		{0, 2, 4, 128},
 		{0, 0, 0, 16}};
 
+	private static final int[][] table6 = {
+		{0, 0, 0, 0},
+		{0, 0, 0, 128},
+		{0, 0, 0, 128},
+		{0, 0, 0, 0}};
+	
+	private static final int[][] table7 = {
+		{16, 0, 0, 16},
+		{0, 16, 0, 0},
+		{0, 0, 16, 0},
+		{0, 16, 0, 0}};
+	
 	@Test(expected = IllegalArgumentException.class)
 	public void testConstructorWithNullArgs() {
 		AdversaryState g = new AdversaryState(null);
@@ -163,4 +175,22 @@ public class AdversaryStateTest {
 		// TODO implement this test
 		assertTrue(true);
 	}	
+	
+	@Test
+	public void testAdd() {
+		Board b = new Board();
+		b.set(table6);
+		AdversaryState g = new AdversaryState(b);
+		
+		assertEquals(1, g.add(2, 3));
+	}
+
+	@Test
+	public void testAddComplex() {
+		Board b = new Board();
+		b.set(table7);
+		AdversaryState g = new AdversaryState(b);
+		
+		assertEquals(0, g.add(2, 2));
+	}
 }
