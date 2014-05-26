@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.101" errors="0" skipped="0" tests="32" name="com.Grateds.game.TestSuite">
+<testsuite failures="0" time="0.11" errors="0" skipped="0" tests="32" name="com.Grateds.game.TestSuite">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64"/>
@@ -59,36 +59,36 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.001" classname="com.Grateds.game.AppTest" name="testApp"/>
-  <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testInvalidPositionsSet"/>
-  <testcase time="0.001" classname="com.Grateds.game.MODEL.BoardTest" name="testInvalidValueSet"/>
-  <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testSimpleValidGet"/>
-  <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testMovingUp"/>
+  <testcase time="0.002" classname="com.Grateds.game.AppTest" name="testApp"/>
+  <testcase time="0.001" classname="com.Grateds.game.MODEL.BoardTest" name="testSimpleValidGet"/>
   <testcase time="0.001" classname="com.Grateds.game.MODEL.BoardTest" name="testMovingUpDifficult"/>
   <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testMovingBelow"/>
   <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testMovingRight"/>
   <testcase time="0.001" classname="com.Grateds.game.MODEL.BoardTest" name="testMovingRightDifficult"/>
-  <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testMovingLeft"/>
-  <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testEquals"/>
+  <testcase time="0.001" classname="com.Grateds.game.MODEL.BoardTest" name="testMovingLeft"/>
+  <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testMovingUp"/>
+  <testcase time="0.001" classname="com.Grateds.game.MODEL.BoardTest" name="testEquals"/>
   <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testContains"/>
-  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryStateTest" name="testIsSucess"/>
-  <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testConstructorWithNullArgs"/>
-  <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testSucessEqualsState"/>
-  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryStateTest" name="testFailMoveUp"/>
+  <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testInvalidPositionsSet"/>
+  <testcase time="0" classname="com.Grateds.game.MODEL.BoardTest" name="testInvalidValueSet"/>
+  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryStateTest" name="testSucessEqualsState"/>
+  <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testIsSucess"/>
+  <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testFailMoveUp"/>
   <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testSucessMoveUp"/>
-  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryStateTest" name="testFailMoveBellow"/>
-  <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testSucessMoveBellow"/>
+  <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testFailMoveBellow"/>
+  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryStateTest" name="testSucessMoveBellow"/>
   <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testFailMoveRight"/>
   <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testSucessMoveRight"/>
   <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testFailMoveLeft"/>
   <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testSucessMoveLeft"/>
-  <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testAssessment"/>
+  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryStateTest" name="testAssessment"/>
   <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testAssessmentComplex"/>
   <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testAdd"/>
-  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryStateTest" name="testAddComplex"/>
-  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testEnd"/>
-  <testcase time="0" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testMinStates"/>
-  <testcase time="0" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testMaxStates"/>
-  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testGetSuccessorsSize"/>
-  <testcase time="0" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testGetSuccessors"/>
+  <testcase time="0" classname="com.Grateds.game.AI.AdversaryStateTest" name="testAddComplex"/>
+  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryStateTest" name="testConstructorWithNullArgs"/>
+  <testcase time="0.002" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testMinStates"/>
+  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testMaxStates"/>
+  <testcase time="0" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testGetSuccessorsSize"/>
+  <testcase time="0.001" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testGetSuccessors"/>
+  <testcase time="0" classname="com.Grateds.game.AI.AdversaryProblemTest" name="testEnd"/>
 </testsuite>
