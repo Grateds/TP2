@@ -202,14 +202,40 @@ public class AdversaryState implements AdversarySearchState {
 	public int assessment(Board b) {
 		int contZero = 0;
 		int val = Integer.MIN_VALUE;
+		int codI = 0; int codJ = 0;
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				if(this.board.get(i, j)==0){contZero++;}
 				if(val < this.board.get(i, j)){
 					val = this.board.get(i, j);
+					codI = i; codJ = j; //keep the coordinates of more
 				}
 			}	
 		}
+		if (add(codI,codJ)!=0){val += val;} //there is a movement to add
 		return val + contZero;
+	}
+	
+	/**
+	 * 
+	 * @param i
+	 * @param j
+	 * @return cont
+	 */
+	public int add(int i, int j){
+		int cont = 0; int p = i; int q = j;
+		if ((0 <= p+1) && (p+1 < 4)){
+			if (this.board.get(i, j) == this.board.get(p + 1, q)) { cont++; }
+		}
+		if ((0 <= q+1) && (q+1 < 4)){
+			if (this.board.get(i, j) == this.board.get(p, q + 1)) { cont++; }
+		}
+		if ((0 <= p-1) && (p-1 < 4)){
+			if (this.board.get(i, j) == this.board.get(p - 1, q)) { cont++; }
+		}
+		if ((0 <= q-1) && (q-1 < 4)){
+			if (this.board.get(i, j) == this.board.get(p, q - 1)) { cont++; }
+		}
+		return cont;
 	}
 }
