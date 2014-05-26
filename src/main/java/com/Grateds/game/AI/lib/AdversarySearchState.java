@@ -1,4 +1,4 @@
-package AI;
+package com.Grateds.game.AI.lib;
 
 /**
  * Interface which defines the basic requirements on states, needed 

@@ -1,4 +1,4 @@
-package AI;
+package com.Grateds.game.AI.lib;
 
 import java.util.*; // necessary due to the use of lists.
 

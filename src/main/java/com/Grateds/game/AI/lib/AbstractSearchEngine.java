@@ -1,4 +1,4 @@
-package AI;
+package com.Grateds.game.AI.lib;
 
 /**
  * Title:        AbstractSearchEngine
