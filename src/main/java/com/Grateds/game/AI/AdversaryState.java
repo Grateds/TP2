@@ -99,7 +99,7 @@ public class AdversaryState implements AdversarySearchState {
 	
 	@Override
 	public Object ruleApplied() {
-		switch (directionToMove) {
+		switch (this.directionToMove) {
 		case 0:
 			this.changeCurrentBoard(this.board.movingUp());
 			return this;
@@ -112,6 +112,23 @@ public class AdversaryState implements AdversarySearchState {
 	    default:
 	    	this.changeCurrentBoard(this.board.movingRight());
 	        return this;
+		}
+	}
+
+    
+	/**
+	 * Return a string representing the direction which the board was moved.
+	 */
+    public String getMove() {
+		switch (this.directionToMove) {
+		case 0:
+			return " it was moved Up";
+	    case 1:
+	    	return " it was moved Down";
+	    case 2:
+	    	return " it was moved Left";
+	    default:
+	    	return " it was moved Right";
 		}
 	}
     
