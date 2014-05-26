@@ -212,7 +212,7 @@ public class AdversaryState implements AdversarySearchState {
 				}
 			}	
 		}
-		if (counter(codI,codJ)!=0){val += val;} //there is a movement to add
+		if (counter(codI,codJ)!=0){val += val;} 
 		return val + contZero;
 	}
 	
@@ -225,16 +225,16 @@ public class AdversaryState implements AdversarySearchState {
 	public int counter(int i, int j){
 		int cont = 0; int p = i; int q = j;
 		if ((0 <= p+1) && (p+1 < 4)){
-			if (this.board.get(i, j) == this.board.get(p + 1, q)) {cont++;}
+			if (this.board.get(i, j) == this.board.get(p+1, q)) {cont++;}
 		}
 		if ((0 <= q+1) && (q+1 < 4)){
-			if (this.board.get(i, j) == this.board.get(p, q + 1)) {cont++;}
+			if (this.board.get(i, j) == this.board.get(p, q+1)) {cont++;}
 		}
 		if ((0 <= p-1) && (p-1 < 4)){
-			if (this.board.get(i, j) == this.board.get(p - 1, q)) {cont++;}
+			if (this.board.get(i, j) == this.board.get(p-1, q)) {cont++;}
 		}
 		if ((0 <= q-1) && (q-1 < 4)){
-			if (this.board.get(i, j) == this.board.get(p, q - 1)) {cont++;}
+			if (this.board.get(i, j) == this.board.get(p, q-1)) {cont++;}
 		}
 		return cont;
 	}
