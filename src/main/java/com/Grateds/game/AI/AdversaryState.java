@@ -244,9 +244,9 @@ public class AdversaryState implements AdversarySearchState {
 				}
 			}	
 		}
-		if (this.board.get(0, 0) == val || this.board.get(3, 0) == val ||this.board.get(0, 3) == val ||this.board.get(3, 3) == val) val += val; 
-		if (counter(codI,codJ)!=0){val += val;} 
-		return val + contZero + this.countNumberOfMerges(2) + this.countNumberOfMerges(4);
+		if (this.board.get(0, 0) == val || this.board.get(3, 0) == val ||this.board.get(0, 3) == val ||this.board.get(3, 3) == val) val *= val; 
+		if (counter(codI,codJ)!=0) {val += val;} 
+		return val * contZero + this.countNumberOfMerges(2)*2 * this.countNumberOfMerges(4)*8;
 	}
 	
 	/**

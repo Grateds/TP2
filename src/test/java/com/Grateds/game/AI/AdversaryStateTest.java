@@ -158,7 +158,7 @@ public class AdversaryStateTest {
 		b.set(table5);
 		AdversaryState g = new AdversaryState(b);
 		
-		assertEquals(137, g.assessment(b));
+		assertEquals(1024, g.assessment(b));
 	}
 	
 	@Test
@@ -167,7 +167,20 @@ public class AdversaryStateTest {
 		b.set(table1);
 		AdversaryState g = new AdversaryState(b);
 		
-		assertEquals(1030, g.assessment(b));
+		assertEquals(6144, g.assessment(b));
+	}
+	
+	@Test
+	public void testAssessmentComparison() {
+		Board b1 = new Board();
+		b1.set(table5);
+		AdversaryState s1 = new AdversaryState(b1);
+		
+		Board b2 = new Board();
+		b2.set(table6);
+		AdversaryState s2 = new AdversaryState(b1);
+
+		assertTrue(s1.assessment(b1) <= s2.assessment(b2));
 	}
 	
 	@Test

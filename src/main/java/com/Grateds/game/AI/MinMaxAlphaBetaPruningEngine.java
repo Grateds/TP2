@@ -138,12 +138,12 @@ public class MinMaxAlphaBetaPruningEngine<P extends AdversarySearchProblem<S>, S
 		} else {
 			List<S> succ = problem.getSuccessors(s);
 			for (S leaf : succ) {
-				if (alpha > beta) break;
-				if (s.isMax()) alpha = Math.max(alpha, aphaBetaPruning(leaf, a, b, d-1));
-				else beta = Math.min(beta, aphaBetaPruning(leaf, a, b, d-1));
+				if (a > b) break;
+				if (s.isMax()) a = Math.max(a, aphaBetaPruning(leaf, a, b, d-1));
+				else b = Math.min(b, aphaBetaPruning(leaf, a, b, d-1));
 			}
-			if (s.isMax()) return alpha;
-			else return beta;
+			if (s.isMax()) return a;
+			else return b;
 		} 					
     } 
 	
